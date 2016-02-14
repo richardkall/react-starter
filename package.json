@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production webpack -c --progress",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "NODE_ENV=test mocha",
+    "test:watch": "NODE_ENV=test mocha -R min -w"
   },
   "pre-commit": "lint",
   "devDependencies": {
@@ -16,12 +18,20 @@
     "babel-preset-react": "~6.5.0",
     "babel-preset-stage-0": "~6.5.0",
     "css-loader": "~0.23.1",
+    "css-modules-require-hook": "~3.0.0",
+    "eslint": "~2.2.0",
     "eslint-config-richardkall": "~2.2.0",
     "eslint-plugin-react": "~4.1.0",
     "eslint": "~2.2.0",
+    "expect-jsx": "~2.3.0",
+    "expect": "~1.14.0",
+    "extract-text-webpack-plugin": "~1.0.1",
+    "file-loader": "~0.8.5",
     "html-webpack-plugin": "~2.8.1",
+    "mocha": "~2.4.5",
     "postcss-loader": "~0.8.1",
     "pre-commit": "~1.1.2",
+    "react-addons-test-utils": "~0.14.7",
     "style-loader": "~0.13.0",
     "webpack": "~1.12.13"
   },
