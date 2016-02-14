@@ -1,4 +1,5 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import autoprefixer from 'autoprefixer';
 import path from 'path';
 import webpack from 'webpack';
 
@@ -15,7 +16,8 @@ export default {
         test: /\.css$/,
         loaders: [
           'style',
-          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          'postcss'
         ]
       },
       {
@@ -25,6 +27,9 @@ export default {
       }
     ]
   },
+  postcss: [
+    autoprefixer()
+  ],
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
