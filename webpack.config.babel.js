@@ -3,6 +3,8 @@ import autoprefixer from 'autoprefixer';
 import path from 'path';
 import webpack from 'webpack';
 
+const DEFAULT_PORT = 3000;
+
 export default {
   context: path.resolve(__dirname, './client'),
   entry: './index.js',
@@ -48,5 +50,9 @@ export default {
         }
       })
     ] : []
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true,
+    port: process.env.PORT || DEFAULT_PORT
+  }
 };
