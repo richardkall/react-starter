@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production webpack -c --progress",
+    "clean": "rm -rf build/*",
     "lint": "eslint .",
+    "prebuild": "npm run clean",
     "start": "webpack-dev-server --hot --inline --progress",
     "test": "NODE_ENV=test mocha",
     "test:watch": "NODE_ENV=test mocha -R min -w"
