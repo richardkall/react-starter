@@ -2,5 +2,8 @@ import {createStore} from 'redux';
 import rootReducer from '../reducers';
 
 export default function configureStore (initialState) {
-  return createStore(rootReducer, initialState);
+  const create = window.devToolsExtension
+    ? window.devToolsExtension()(createStore)
+    : createStore;
+  return create(rootReducer, initialState);
 }
