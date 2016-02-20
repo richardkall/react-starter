@@ -20,11 +20,17 @@ export default {
     loaders: [
       {
         test: /\.css$/,
-        loader: DEBUG ? `style!css?${CSS_PARAMS}!postcss` : ExtractTextPlugin.extract('style', `css?${CSS_PARAMS}!postcss`)
+        loader: DEBUG ? `style!css?${CSS_PARAMS}!postcss` : ExtractTextPlugin.extract('style', `css?${CSS_PARAMS}!postcss`),
+        exclude: /node_modules/
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.gif$|\.jpe?g$|\.png$|\.svg$/i,
+        loader: `url?limit=10000&name=[name]${DEBUG ? '' : '.[hash:7]'}.[ext]`,
         exclude: /node_modules/
       }
     ]
