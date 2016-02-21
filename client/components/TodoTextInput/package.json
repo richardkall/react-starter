@@ -1,0 +1,6 @@
+{
+  "name": "TodoTextInput",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TodoTextInput.js"
+}

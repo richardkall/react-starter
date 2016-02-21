@@ -16,6 +16,7 @@
 - [x] [Redux](http://redux.js.org/)
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [x] [Stylelint](http://stylelint.io/)
+- [x] [TodoMVC example](http://todomvc.com/)
 - [x] [Webpack](https://webpack.github.io)
 
 ## Setup

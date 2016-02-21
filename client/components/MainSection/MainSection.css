@@ -1,0 +1,34 @@
+.root {
+  border-top: 1px solid #e6e6e6;
+  position: relative;
+  z-index: 2;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toggleAll {
+  appearance: none;
+  border: 0;
+  height: 34px;
+  left: -12px;
+  position: absolute;
+  text-align: center;
+  top: -55px;
+  transform: rotate(90deg);
+  width: 60px;
+
+  &:checked::before {
+    color: #737373;
+  }
+
+  &::before {
+    color: #e6e6e6;
+    content: '❯';
+    font-size: 22px;
+    padding: 10px 27px 10px 27px;
+  }
+}
