@@ -13,6 +13,7 @@
 - [x] [React](http://facebook.github.io/react/)
 - [x] [React Router](https://github.com/reactjs/react-router)
 - [x] [React Transform HMR](https://github.com/gaearon/react-transform-hmr)
+- [x] [Redux](http://redux.js.org/)
 - [x] [Webpack](https://webpack.github.io)
 
 ## Setup
