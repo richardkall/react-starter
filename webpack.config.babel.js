@@ -13,7 +13,8 @@ export default {
   entry: './index.js',
   output: {
     path: path.resolve(__dirname, './build'),
-    filename: 'bundle.js'
+    filename: `[name]${DEBUG ? '' : '.[hash]'}.js`,
+    hashDigestLength: 7
   },
   module: {
     loaders: [
@@ -53,7 +54,7 @@ export default {
       }
     }),
     ...DEBUG ? [] : [
-      new ExtractTextPlugin('[name].css'),
+      new ExtractTextPlugin('[name].[hash].css'),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.UglifyJsPlugin({
