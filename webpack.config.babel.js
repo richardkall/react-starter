@@ -38,7 +38,19 @@ export default {
       }
     }),
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './index.html',
+      ...DEBUG ? {} : {
+        minify: {
+          collapseWhitespace: true,
+          minifyURLs: true,
+          removeAttributeQuotes: true,
+          removeComments: true,
+          removeOptionalTags: true,
+          removeRedundantAttributes: true,
+          removeTagWhitespace: true,
+          useShortDoctype: true
+        }
+      }
     }),
     ...DEBUG ? [] : [
       new ExtractTextPlugin('[name].css'),
