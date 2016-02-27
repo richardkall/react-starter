@@ -1,4 +1,4 @@
-# React Starter
+# React Starter [![Dependency Status](https://david-dm.org/richardkall/react-starter.svg)](https://david-dm.org/richardkall/react-starter) [![devDependency Status](https://david-dm.org/richardkall/react-starter/dev-status.svg)](https://david-dm.org/richardkall/react-starter#info=devDependencies)
 
 > Boilerplate for React applications.
 
