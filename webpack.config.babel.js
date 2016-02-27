@@ -1,6 +1,7 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
+import nested from 'postcss-nested';
 import path from 'path';
 import webpack from 'webpack';
 
@@ -36,6 +37,7 @@ export default {
     ]
   },
   postcss: [
+    nested(),
     autoprefixer()
   ],
   plugins: [
