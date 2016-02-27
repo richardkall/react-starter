@@ -1,9 +1,12 @@
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
 import webpack from 'webpack';
 
 const DEFAULT_PORT = 3000;
+const DEBUG = process.env.NODE_ENV !== 'production';
+const CSS_PARAMS = 'modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]';
 
 export default {
   context: path.resolve(__dirname, './client'),
@@ -16,11 +19,7 @@ export default {
     loaders: [
       {
         test: /\.css$/,
-        loaders: [
-          'style',
-          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-          'postcss'
-        ]
+        loader: DEBUG ? `style!css?${CSS_PARAMS}!postcss` : ExtractTextPlugin.extract('style', `css?${CSS_PARAMS}!postcss`)
       },
       {
         test: /\.js$/,
@@ -41,7 +40,8 @@ export default {
     new HtmlWebpackPlugin({
       template: './index.html'
     }),
-    ...process.env.NODE_ENV === 'production' ? [
+    ...DEBUG ? [] : [
+      new ExtractTextPlugin('[name].css'),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.UglifyJsPlugin({
@@ -49,7 +49,7 @@ export default {
           warnings: false
         }
       })
-    ] : []
+    ]
   ],
   devServer: {
     historyApiFallback: true,
