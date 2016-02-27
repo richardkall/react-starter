@@ -5,7 +5,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack -c --progress",
     "clean": "rm -rf build/*",
-    "lint": "eslint .",
+    "lint": "eslint . && stylelint ./client/**/*.css",
     "prebuild": "npm run clean",
     "start": "webpack-dev-server --hot --inline --progress",
     "test": "NODE_ENV=test mocha",
@@ -38,6 +38,8 @@
     "react-addons-test-utils": "~0.14.7",
     "react-transform-hmr": "~1.0.2",
     "style-loader": "~0.13.0",
+    "stylelint": "~4.4.0",
+    "stylelint-config-richardkall": "~0.1.0",
     "url-loader": "~0.5.7",
     "webpack-dev-server": "~1.14.1",
     "webpack": "~1.12.13"
