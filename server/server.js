@@ -1,3 +1,4 @@
+import compression from 'compression';
 import config from '../webpack.config.babel';
 import express from 'express';
 import path from 'path';
@@ -15,6 +16,7 @@ server.set('port', process.env.PORT || DEFAULT_PORT);
 server.set('views', path.resolve(__dirname, 'views'));
 server.set('view engine', 'jade');
 
+server.use(compression());
 server.use(express.static(path.resolve(__dirname, '../build')));
 
 if (DEBUG) {
