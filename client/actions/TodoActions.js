@@ -1,4 +1,7 @@
 import * as types from '../constants/ActionTypes';
+import fetch from 'isomorphic-fetch';
+
+const API = process.env.API;
 
 export function addTodo (text) {
   return {type: types.ADD_TODO, text};
@@ -22,4 +25,17 @@ export function deleteTodo (id) {
 
 export function editTodo (id, text) {
   return {type: types.EDIT_TODO, id, text};
+}
+
+export function fetchTodosSuccess (json) {
+  return {type: types.FETCH_TODOS_SUCCESS, todos: json};
+}
+
+export function fetchTodos () {
+  return (dispatch) => {
+    return fetch(`${API}/todos`)
+      .then((response) => response.json())
+      .then((json) => dispatch(fetchTodosSuccess(json)))
+      .catch((error) => console.log(error)); // eslint-disable-line no-console
+  };
 }

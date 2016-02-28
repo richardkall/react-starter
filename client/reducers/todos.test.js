@@ -2,16 +2,6 @@ import * as types from '../constants/ActionTypes';
 import todos from './todos';
 
 describe('todos reducer', () => {
-  it('returns initial state', () => {
-    expect(todos(undefined, {})).toEqual([ // eslint-disable-line no-undefined
-      {
-        id: 0,
-        text: 'Use Redux',
-        completed: false
-      }
-    ]);
-  });
-
   it('handles ADD_TODO', () => {
     expect(todos([
       {
@@ -31,6 +21,28 @@ describe('todos reducer', () => {
         id: 0,
         text: 'Use Redux',
         completed: false
+      }
+    ]);
+  });
+
+  it('handles CLEAR_COMPLETED', () => {
+    expect(todos([
+      {
+        id: 1,
+        text: 'Run the tests',
+        completed: true
+      }, {
+        id: 0,
+        text: 'Use Redux',
+        completed: false
+      }
+    ], {
+      type: types.CLEAR_COMPLETED
+    })).toEqual([
+      {
+        id: 0,
+        completed: false,
+        text: 'Use Redux'
       }
     ]);
   });
@@ -139,25 +151,27 @@ describe('todos reducer', () => {
     ]);
   });
 
-  it('handles CLEAR_COMPLETED', () => {
-    expect(todos([
-      {
-        id: 1,
-        text: 'Run the tests',
-        completed: true
-      }, {
+  it('handles FETCH_TODOS_SUCCESS', () => {
+    expect(todos([], {
+      todos: [{
         id: 0,
-        text: 'Use Redux',
-        completed: false
-      }
-    ], {
-      type: types.CLEAR_COMPLETED
-    })).toEqual([
-      {
-        text: 'Use Redux',
         completed: false,
-        id: 0
-      }
-    ]);
+        text: 'Use Redux'
+      }],
+      type: types.FETCH_TODOS_SUCCESS
+    })).toEqual([{
+      id: 0,
+      completed: false,
+      text: 'Use Redux'
+    }]);
+  });
+
+  it('handles initial state', () => {
+    const initialState = {
+      id: 0,
+      text: 'Use Redux',
+      completed: false
+    };
+    expect(todos(initialState, {})).toEqual(initialState);
   });
 });

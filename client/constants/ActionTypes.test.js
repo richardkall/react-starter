@@ -24,4 +24,8 @@ describe('ActionTypes', () => {
   it('contains EDIT_TODO', () => {
     expect(ActionTypes.EDIT_TODO).toEqual('EDIT_TODO');
   });
+
+  it('contains FETCH_TODOS_SUCCESS', () => {
+    expect(ActionTypes.FETCH_TODOS_SUCCESS).toEqual('FETCH_TODOS_SUCCESS');
+  });
 });

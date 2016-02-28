@@ -9,6 +9,25 @@ describe('TodoActions', () => {
     });
   });
 
+  it('creates CLEAR_COMPLETED action', () => {
+    expect(actions.clearCompleted()).toEqual({
+      type: types.CLEAR_COMPLETED
+    });
+  });
+
+  it('creates COMPLETE_ALL action', () => {
+    expect(actions.completeAll()).toEqual({
+      type: types.COMPLETE_ALL
+    });
+  });
+
+  it('creates COMPLETE_TODO action', () => {
+    expect(actions.completeTodo(1)).toEqual({
+      type: types.COMPLETE_TODO,
+      id: 1
+    });
+  });
+
   it('creates DELETE_TODO action', () => {
     expect(actions.deleteTodo(1)).toEqual({
       type: types.DELETE_TODO,
@@ -24,22 +43,29 @@ describe('TodoActions', () => {
     });
   });
 
-  it('creates COMPLETE_TODO action', () => {
-    expect(actions.completeTodo(1)).toEqual({
-      type: types.COMPLETE_TODO,
-      id: 1
+  it('creates FETCH_TODOS_SUCCESS action', () => {
+    expect(actions.fetchTodosSuccess(['item'])).toEqual({
+      type: types.FETCH_TODOS_SUCCESS,
+      todos: ['item']
     });
   });
 
-  it('creates COMPLETE_ALL action', () => {
-    expect(actions.completeAll()).toEqual({
-      type: types.COMPLETE_ALL
+  describe('async actions', () => {
+    afterEach(() => {
+      nock.cleanAll();
     });
-  });
 
-  it('creates CLEAR_COMPLETED action', () => {
-    expect(actions.clearCompleted()).toEqual({
-      type: types.CLEAR_COMPLETED
+    it('creates FETCH_TODOS_SUCCESS action when fetching todos', (done) => {
+      const expectedActions = [
+        {type: types.FETCH_TODOS_SUCCESS, todos: ['item']}
+      ];
+
+      nock(API)
+        .get('/todos')
+        .reply(200, ['item']);
+
+      const store = mockStore()({}, expectedActions, done);
+      store.dispatch(actions.fetchTodos());
     });
   });
 });
