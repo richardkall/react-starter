@@ -1,6 +1,7 @@
 import compression from 'compression';
 import config from '../webpack.config.babel';
 import express from 'express';
+import morgan from 'morgan';
 import path from 'path';
 import reactMiddleware from './middleware/reactMiddleware';
 import webpack from 'webpack';
@@ -17,15 +18,19 @@ server.set('views', path.resolve(__dirname, 'views'));
 server.set('view engine', 'jade');
 
 server.use(compression());
-server.use(express.static(path.resolve(__dirname, '../build')));
 
 if (DEBUG) {
   const compiler = webpack(config);
+  server.use(morgan('dev'));
   server.use(webpackMiddleware(compiler, {
     historyApiFallback: true,
-    hot: true
+    hot: true,
+    quiet: true
   }));
   server.use(webpackHotMiddleware(compiler));
+} else {
+  server.use(express.static(path.resolve(__dirname, '../build')));
+  server.use(morgan('combined'));
 }
 
 server.use(reactMiddleware);

@@ -53,6 +53,7 @@
     "compression": "~1.6.1",
     "express": "~4.13.4",
     "jade": "~1.11.0",
+    "morgan": "~1.7.0",
     "react": "~0.14.7",
     "react-dom": "~0.14.7",
     "react-redux": "~4.4.0",
