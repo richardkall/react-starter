@@ -4,7 +4,10 @@
     "mocha": true
   },
   "globals": {
+    "API": true,
     "expect": true,
+    "mockStore": true,
+    "nock": true,
     "shallowRender": true
   }
 }
