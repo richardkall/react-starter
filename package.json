@@ -7,12 +7,15 @@
     "clean": "rm -rf build/*",
     "lint": "eslint . && stylelint ./client/**/*.css",
     "prebuild": "npm run clean",
-    "start": "webpack-dev-server --hot --inline --progress",
+    "prestart": "npm run build",
+    "start": "NODE_ENV=production node ./server",
+    "start-dev": "nodemon ./server --watch ./server",
     "test": "NODE_ENV=test mocha",
-    "test:watch": "NODE_ENV=test mocha -R min -w"
+    "test-watch": "NODE_ENV=test mocha -R min -w"
   },
   "pre-commit": "lint",
   "devDependencies": {
+    "assets-webpack-plugin": "~3.3.0",
     "autoprefixer": "~6.3.3",
     "babel-core": "~6.5.2",
     "babel-eslint": "~5.0.0",
@@ -30,8 +33,8 @@
     "expect-jsx": "~2.3.0",
     "extract-text-webpack-plugin": "~1.0.1",
     "file-loader": "~0.8.5",
-    "html-webpack-plugin": "~2.9.0",
     "mocha": "~2.4.5",
+    "nodemon": "~1.9.1",
     "postcss-loader": "~0.8.1",
     "postcss-nested": "~1.0.0",
     "pre-commit": "~1.1.2",
@@ -42,10 +45,13 @@
     "stylelint-config-richardkall": "~0.1.0",
     "url-loader": "~0.5.7",
     "webpack": "~1.12.14",
-    "webpack-dev-server": "~1.14.1"
+    "webpack-dev-middleware": "~1.5.1",
+    "webpack-hot-middleware": "~2.7.1"
   },
   "dependencies": {
     "classnames": "~2.2.3",
+    "express": "~4.13.4",
+    "jade": "~1.11.0",
     "react": "~0.14.7",
     "react-dom": "~0.14.7",
     "react-redux": "~4.4.0",

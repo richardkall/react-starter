@@ -1,6 +1,6 @@
 # React Starter [![Build Status](https://travis-ci.org/richardkall/react-starter.svg?branch=master)](https://travis-ci.org/richardkall/react-starter) [![Dependency Status](https://david-dm.org/richardkall/react-starter.svg)](https://david-dm.org/richardkall/react-starter) [![devDependency Status](https://david-dm.org/richardkall/react-starter/dev-status.svg)](https://david-dm.org/richardkall/react-starter#info=devDependencies)
 
-> Boilerplate for React applications.
+> Boilerplate for isomorphic React applications.
 
 ## Features
 
@@ -8,6 +8,7 @@
 - [x] [Babel](https://babeljs.io/)
 - [x] [CSS modules](https://github.com/css-modules/css-modules)
 - [x] [ESLint](http://eslint.org/)
+- [x] [Express](http://expressjs.com/)
 - [x] [Mocha](https://mochajs.org/)
 - [x] [PostCSS](https://github.com/postcss/postcss)
 - [x] [React](http://facebook.github.io/react/)
@@ -27,16 +28,16 @@ $ npm install
 
 ## Usage
 
-Run webpack-dev-server:
+Start development server:
+
+```bash
+$ npm run start-dev
+```
+
+Start production server:
 
 ```bash
 $ npm start
-```
-
-Build for production:
-
-```bash
-$ npm run build
 ```
 
 ## License
