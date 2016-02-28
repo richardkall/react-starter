@@ -40,6 +40,7 @@ $ npm install
 │   ├── store                 # Redux store
 │   └── index.js              # Entry point for client-side application
 ├── server                    # Source code for Express server
+│   ├── api                   # Mock API
 │   ├── middleware            # Server middleware
 │   ├── views                 # Server views (Jade templates)
 │   ├── index.js              # Entry point for server (with babel-register etc.)

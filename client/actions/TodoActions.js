@@ -1,8 +1,6 @@
 import * as types from '../constants/ActionTypes';
 import fetch from 'isomorphic-fetch';
 
-const API = process.env.API;
-
 export function addTodo (text) {
   return {type: types.ADD_TODO, text};
 }
@@ -32,6 +30,8 @@ export function fetchTodosSuccess (json) {
 }
 
 export function fetchTodos () {
+  const API = process.env.API || 'http://localhost:3000/api';
+
   return (dispatch) => {
     return fetch(`${API}/todos`)
       .then((response) => response.json())
