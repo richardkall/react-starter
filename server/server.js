@@ -5,8 +5,6 @@ import morgan from 'morgan';
 import path from 'path';
 import reactMiddleware from './middleware/reactMiddleware';
 import webpack from 'webpack';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackMiddleware from 'webpack-dev-middleware';
 
 const DEBUG = process.env.NODE_ENV !== 'production';
 const DEFAULT_PORT = 3000;
@@ -21,6 +19,9 @@ server.use(compression());
 
 if (DEBUG) {
   const compiler = webpack(config);
+  const webpackHotMiddleware = require('webpack-hot-middleware');
+  const webpackMiddleware = require('webpack-dev-middleware');
+
   server.use(morgan('dev'));
   server.use(webpackMiddleware(compiler, {
     historyApiFallback: true,

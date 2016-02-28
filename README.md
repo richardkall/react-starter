@@ -1,6 +1,6 @@
 # React Starter [![Build Status](https://travis-ci.org/richardkall/react-starter.svg?branch=master)](https://travis-ci.org/richardkall/react-starter) [![Dependency Status](https://david-dm.org/richardkall/react-starter.svg)](https://david-dm.org/richardkall/react-starter) [![devDependency Status](https://david-dm.org/richardkall/react-starter/dev-status.svg)](https://david-dm.org/richardkall/react-starter#info=devDependencies)
 
-> Boilerplate for isomorphic React applications.
+> Boilerplate for isomorphic React applications. ▸ [See demo](https://react-starter-demo.herokuapp.com)
 
 ## Features
 
