@@ -28,6 +28,30 @@ $ npm install
 
 ## Usage
 
+```bash
+.
+├── client                    # Source code for client-side application
+│   ├── actions               # Redux action creators
+│   ├── components            # Presentational/dumb components
+│   ├── constants             # Global constants (action types etc.)
+│   ├── containers            # Stateful/smart components
+│   ├── reducers              # Redux reducers
+│   ├── routes                # Routes used by React Router (shared with server)
+│   ├── store                 # Redux store
+│   └── index.js              # Entry point for client-side application
+├── server                    # Source code for Express server
+│   ├── middleware            # Server middleware
+│   ├── views                 # Server views (Jade templates)
+│   ├── index.js              # Entry point for server (with babel-register etc.)
+│   └── server.js             # Express server
+├── test                      # Test setup and helpers
+├── .babelrc                  # Babel configuration
+├── .eslintrc                 # ESLint configuration
+├── .stylelintrc              # Stylelint configuration
+├── browserslist              # Autoprefixer browser list
+└── webpack.config.babel.js   # Webpack configuration
+```
+
 Start development server:
 
 ```bash
