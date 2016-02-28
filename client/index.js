@@ -4,7 +4,8 @@ import configureStore from './store/configureStore';
 import {render} from 'react-dom';
 import routes from './routes';
 
-const store = configureStore();
+const initialState = window.__INITIAL_STATE__;
+const store = configureStore(initialState);
 
 render(
   <Provider store={store}>
