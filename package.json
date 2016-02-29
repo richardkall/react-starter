@@ -5,7 +5,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack -c --progress",
     "clean": "rm -rf build/*",
-    "lint": "eslint . && stylelint ./client/**/*.css",
+    "lint": "eslint --ignore-path .gitignore . && stylelint ./client/**/*.css",
     "prebuild": "npm run clean",
     "prestart": "npm run build",
     "start": "NODE_ENV=production node ./server",
