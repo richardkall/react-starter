@@ -8,13 +8,12 @@ import reactMiddleware from './middleware/reactMiddleware';
 import webpack from 'webpack';
 
 const DEBUG = process.env.NODE_ENV !== 'production';
-const DEFAULT_PORT = 3000;
 const server = express();
 
 server.set('env', DEBUG ? 'development' : 'production');
-server.set('port', process.env.PORT || DEFAULT_PORT);
-server.set('views', path.resolve(__dirname, 'views'));
+server.set('port', process.env.PORT || 3000);
 server.set('view engine', 'jade');
+server.set('views', path.resolve(__dirname, 'views'));
 
 server.use(compression());
 
