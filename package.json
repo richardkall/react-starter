@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production webpack -c --progress",
-    "clean": "rm -rf build/*",
-    "lint": "eslint --ignore-path .gitignore . && stylelint ./client/**/*.css",
-    "prebuild": "npm run clean",
+    "lint": "eslint --ignore-path .gitignore . && stylelint client/**/*.css",
+    "prebuild": "rm -rf build/*",
     "prestart": "npm run build",
-    "start": "NODE_ENV=production node ./server",
-    "start-dev": "nodemon ./server --watch ./server",
+    "start": "NODE_ENV=production node server",
+    "start-dev": "nodemon server -w server",
     "test": "NODE_ENV=test mocha",
     "test-watch": "NODE_ENV=test mocha -R min -w"
   },
