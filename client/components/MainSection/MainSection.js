@@ -27,7 +27,7 @@ class MainSection extends Component {
       <input
         checked={completedCount === todos.length}
         className={style.toggleAll}
-        type="checkbox"
+        type='checkbox'
         onChange={this.handleCompleteAll}
       />
     );

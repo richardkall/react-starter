@@ -22,11 +22,11 @@ describe('TodoTextInput', () => {
     const {output} = setup();
     expect(output).toEqualJSX(
       <input
-        autoFocus="true"
+        autoFocus='true'
         className={style.normal}
-        placeholder="What needs to be done?"
-        type="text"
-        value=""
+        placeholder='What needs to be done?'
+        type='text'
+        value=''
         onBlur={() => {}}
         onChange={() => {}}
         onKeyDown={() => {}}

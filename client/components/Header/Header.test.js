@@ -24,7 +24,7 @@ describe('Header', () => {
         <h1>todos</h1>
         <TodoTextInput
           newTodo
-          placeholder="What needs to be done?"
+          placeholder='What needs to be done?'
           onSave={() => {}}
         />
       </header>

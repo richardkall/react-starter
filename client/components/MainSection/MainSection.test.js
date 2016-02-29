@@ -45,7 +45,7 @@ describe('MainSection', () => {
         <input
           checked={false}
           className={style.toggleAll}
-          type="checkbox"
+          type='checkbox'
           onChange={() => {}}
         />
         <ul className={style.list}>
@@ -80,7 +80,7 @@ describe('MainSection', () => {
         <input
           checked
           className={style.toggleAll}
-          type="checkbox"
+          type='checkbox'
           onChange={() => {}}
         />
         <ul className={style.list}>

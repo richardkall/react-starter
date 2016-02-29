@@ -36,7 +36,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/active"
+              to='/active'
             >
               Active
             </Link>
@@ -47,7 +47,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/"
+              to='/'
             >
               All
             </Link>
@@ -58,7 +58,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/completed"
+              to='/completed'
             >
               Completed
             </Link>
@@ -82,7 +82,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/active"
+              to='/active'
             >
               Active
             </Link>
@@ -93,7 +93,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/"
+              to='/'
             >
               All
             </Link>
@@ -104,7 +104,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/completed"
+              to='/completed'
             >
               Completed
             </Link>
@@ -128,7 +128,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/active"
+              to='/active'
             >
               Active
             </Link>
@@ -139,7 +139,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/"
+              to='/'
             >
               All
             </Link>
@@ -150,7 +150,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/completed"
+              to='/completed'
             >
               Completed
             </Link>
@@ -180,7 +180,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/active"
+              to='/active'
             >
               Active
             </Link>
@@ -191,7 +191,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/"
+              to='/'
             >
               All
             </Link>
@@ -202,7 +202,7 @@ describe('Footer', () => {
               className={style.filter}
               onlyActiveOnIndex={false}
               style={{}}
-              to="/completed"
+              to='/completed'
             >
               Completed
             </Link>

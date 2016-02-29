@@ -8,17 +8,17 @@ export default (
     <Route
       component={App}
       filter={SHOW_ALL}
-      path="/"
+      path='/'
     />
     <Route
       component={App}
       filter={SHOW_ACTIVE}
-      path="active"
+      path='active'
     />
     <Route
       component={App}
       filter={SHOW_COMPLETED}
-      path="completed"
+      path='completed'
     />
   </Router>
 );

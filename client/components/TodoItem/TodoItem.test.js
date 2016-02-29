@@ -38,7 +38,7 @@ describe('TodoItem', () => {
           <input
             checked={props.todo.completed}
             className={style.toggle}
-            type="checkbox"
+            type='checkbox'
             onChange={() => {}}
           />
           <label

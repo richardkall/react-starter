@@ -42,7 +42,7 @@ class TodoItem extends Component {
           <input
             checked={todo.completed}
             className={style.toggle}
-            type="checkbox"
+            type='checkbox'
             onChange={() => completeTodo(todo.id)}
           />
           <label
