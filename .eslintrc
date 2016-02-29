@@ -9,8 +9,5 @@
     "mockStore": true,
     "nock": true,
     "shallowRender": true
-  },
-  "rules": {
-    "no-magic-numbers": 0
   }
 }

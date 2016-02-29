@@ -17,7 +17,7 @@
   "devDependencies": {
     "babel-eslint": "~5.0.0",
     "babel-plugin-react-transform": "~2.0.0",
-    "eslint-config-richardkall": "~2.3.0",
+    "eslint-config-richardkall": "~2.4.0",
     "eslint-plugin-react": "~4.1.0",
     "eslint": "~2.2.0",
     "expect-jsx": "~2.3.0",
