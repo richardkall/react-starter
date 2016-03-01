@@ -1,6 +1,6 @@
-import {SHOW_ACTIVE, SHOW_ALL} from '../../constants/TodoFilters';
 import Footer from '.';
 import React from 'react';
+import {SHOW_ALL} from '../../constants/TodoFilters';
 import style from './Footer.css';
 
 const Link = () => {};
@@ -15,15 +15,13 @@ const setup = (overrides) => {
 
   const {output} = shallowRender(<Footer {...props} />);
 
-  return {
-    output,
-    props
-  };
+  return {output, props};
 };
 
 describe('Footer', () => {
   it('renders correctly', () => {
     const {output} = setup();
+
     expect(output).toEqualJSX(
       <footer className={style.root}>
         <span className={style.count}>
@@ -70,6 +68,7 @@ describe('Footer', () => {
 
   it('renders correctly when activeCount > 0', () => {
     const {output} = setup({activeCount: 3});
+
     expect(output).toEqualJSX(
       <footer className={style.root}>
         <span className={style.count}>
@@ -116,6 +115,7 @@ describe('Footer', () => {
 
   it('renders correctly when completedCount > 0', () => {
     const {output} = setup({completedCount: 1});
+
     expect(output).toEqualJSX(
       <footer className={style.root}>
         <span className={style.count}>
@@ -166,56 +166,12 @@ describe('Footer', () => {
     );
   });
 
-  it('renders correctly when SHOW_ACTIVE is selected', () => {
-    const {output} = setup({filter: SHOW_ACTIVE});
-    expect(output).toEqualJSX(
-      <footer className={style.root}>
-        <span className={style.count}>
-          <strong>No</strong> items left
-        </span>
-        <ul className={style.filters}>
-          <li>
-            <Link
-              activeClassName={style.selectedFilter}
-              className={style.filter}
-              onlyActiveOnIndex={false}
-              style={{}}
-              to='/active'
-            >
-              Active
-            </Link>
-          </li>
-          <li>
-            <Link
-              activeClassName={style.selectedFilter}
-              className={style.filter}
-              onlyActiveOnIndex={false}
-              style={{}}
-              to='/'
-            >
-              All
-            </Link>
-          </li>
-          <li>
-            <Link
-              activeClassName={style.selectedFilter}
-              className={style.filter}
-              onlyActiveOnIndex={false}
-              style={{}}
-              to='/completed'
-            >
-              Completed
-            </Link>
-          </li>
-        </ul>
-      </footer>
-    );
-  });
-
   it('calls onClearCompleted on clear button click', () => {
     const {output, props} = setup({completedCount: 1});
-    const clear = output.props.children[2];
-    clear.props.onClick();
+    const clearButton = output.props.children[2];
+
+    clearButton.props.onClick();
+
     expect(props.onClearCompleted).toHaveBeenCalled();
   });
 });

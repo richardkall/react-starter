@@ -25,8 +25,8 @@ export function editTodo (id, text) {
   return {type: types.EDIT_TODO, id, text};
 }
 
-export function fetchTodosSuccess (json) {
-  return {type: types.FETCH_TODOS_SUCCESS, todos: json};
+export function fetchTodosSuccess (todos) {
+  return {type: types.FETCH_TODOS_SUCCESS, todos};
 }
 
 export function fetchTodos () {

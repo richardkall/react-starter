@@ -53,13 +53,19 @@ export default {
       path: 'build'
     }),
     new ExtractTextPlugin(`[name]${DEBUG ? '' : '.[hash]'}.css`),
-    new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(DEBUG ? 'development' : 'production')}),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(DEBUG ? 'development' : 'production')
+    }),
     ...DEBUG ? [
       new webpack.HotModuleReplacementPlugin()
     ] : [
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.OccurenceOrderPlugin(),
-      new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}})
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      })
     ]
   ],
   postcss: [

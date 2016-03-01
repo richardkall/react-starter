@@ -19,15 +19,13 @@ const setup = () => {
 
   const {output} = shallowRender(<App {...props} />);
 
-  return {
-    output,
-    props
-  };
+  return {output, props};
 };
 
 describe('App', () => {
   it('renders correctly', () => {
     const {output, props} = setup();
+
     expect(output).toEqualJSX(
       <div className={style.root}>
         <Header addTodo={props.actions.addTodo} />

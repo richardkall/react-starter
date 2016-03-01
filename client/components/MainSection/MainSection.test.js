@@ -26,20 +26,18 @@ const setup = (overrides) => {
         completed: false,
         text: 'Write tests'
       }
-    ], ...overrides
+    ]
   }, overrides);
 
   const {output} = shallowRender(<MainSection {...props} />);
 
-  return {
-    output,
-    props
-  };
+  return {output, props};
 };
 
 describe('MainSection', () => {
   it('renders correctly', () => {
     const {output, props} = setup();
+
     expect(output).toEqualJSX(
       <section className={style.root}>
         <input
@@ -75,6 +73,7 @@ describe('MainSection', () => {
         text: 'Use Redux'
       }]
     });
+
     expect(output).toEqualJSX(
       <section className={style.root}>
         <input
@@ -102,7 +101,9 @@ describe('MainSection', () => {
   it('calls completeAll on toggle change', () => {
     const {output, props} = setup();
     const [toggle] = output.props.children;
+
     toggle.props.onChange();
+
     expect(props.actions.completeAll).toHaveBeenCalled();
   });
 });

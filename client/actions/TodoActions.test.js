@@ -51,14 +51,13 @@ describe('TodoActions', () => {
   });
 
   describe('async actions', () => {
-    afterEach(() => {
-      nock.cleanAll();
-    });
+    afterEach(() => nock.cleanAll());
 
     it('creates FETCH_TODOS_SUCCESS action when fetching todos', (done) => {
-      const expectedActions = [
-        {type: types.FETCH_TODOS_SUCCESS, todos: ['item']}
-      ];
+      const expectedActions = [{
+        type: types.FETCH_TODOS_SUCCESS,
+        todos: ['item']
+      }];
 
       nock(API)
         .get('/todos')

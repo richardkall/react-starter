@@ -10,15 +10,13 @@ const setup = () => {
 
   const {output} = shallowRender(<Header {...props} />);
 
-  return {
-    output,
-    props
-  };
+  return {output, props};
 };
 
 describe('Header', () => {
   it('renders correctly', () => {
     const {output} = setup();
+
     expect(output).toEqualJSX(
       <header>
         <h1>todos</h1>
@@ -34,7 +32,9 @@ describe('Header', () => {
   it('calls addTodo on input save', () => {
     const {output, props} = setup();
     const input = output.props.children[1];
+
     input.props.onSave('Use Redux');
+
     expect(props.addTodo).toHaveBeenCalledWith('Use Redux');
   });
 });

@@ -17,27 +17,29 @@ export default function todos (state = [], action) {
 
     case types.COMPLETE_ALL:
       const areAllMarked = state.every((todo) => todo.completed);
-      return state.map((todo) => {
-        return {...todo, completed: !areAllMarked};
-      });
+
+      return state.map((todo) => ({
+        ...todo,
+        completed: !areAllMarked
+      }));
 
     case types.COMPLETE_TODO:
       return state.map((todo) =>
-        todo.id === action.id
-          ? {...todo, completed: !todo.completed}
-          : todo
+        todo.id === action.id ? {
+          ...todo,
+          completed: !todo.completed
+        } : todo
       );
 
     case types.DELETE_TODO:
-      return state.filter((todo) =>
-        todo.id !== action.id
-      );
+      return state.filter((todo) => todo.id !== action.id);
 
     case types.EDIT_TODO:
       return state.map((todo) =>
-        todo.id === action.id
-          ? {...todo, text: action.text}
-          : todo
+        todo.id === action.id ? {
+          ...todo,
+          text: action.text
+        } : todo
       );
 
     case types.FETCH_TODOS_SUCCESS:

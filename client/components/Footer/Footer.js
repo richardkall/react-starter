@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PropTypes} from 'react';
 import {SHOW_ACTIVE, SHOW_ALL, SHOW_COMPLETED} from '../../constants/TodoFilters';
 import {Link} from 'react-router';
 import style from './Footer.css';
@@ -9,8 +9,20 @@ const FILTER_TITLES = {
   [SHOW_COMPLETED]: 'Completed'
 };
 
-class Footer extends Component {
-  renderFilterLink (filter) {
+const Footer = (props) => {
+  const {activeCount, completedCount, onClearCompleted} = props;
+  const itemWord = activeCount === 1 ? 'item' : 'items';
+
+  const clearButton = completedCount ? (
+    <button
+      className={style.clearCompleted}
+      onClick={onClearCompleted}
+    >
+      Clear completed
+    </button>
+  ) : false;
+
+  const filterLink = (filter) => { // eslint-disable-line react/no-multi-comp
     const title = FILTER_TITLES[filter];
     const uri = title === 'All' ? '/' : `/${title.toLowerCase()}`;
 
@@ -23,49 +35,24 @@ class Footer extends Component {
         {title}
       </Link>
     );
-  }
+  };
 
-  renderClearButton () {
-    const {completedCount, onClearCompleted} = this.props;
-    if (!completedCount) return false;
-
-    return (
-      <button
-        className={style.clearCompleted}
-        onClick={onClearCompleted}
-      >
-        Clear completed
-      </button>
-    );
-  }
-
-  renderTodoCount () {
-    const {activeCount} = this.props;
-    const itemWord = activeCount === 1 ? 'item' : 'items';
-
-    return (
+  return (
+    <footer className={style.root}>
       <span className={style.count}>
         <strong>{activeCount || 'No'}</strong> {itemWord} left
       </span>
-    );
-  }
-
-  render () {
-    return (
-      <footer className={style.root}>
-        {this.renderTodoCount()}
-        <ul className={style.filters}>
-          {[SHOW_ACTIVE, SHOW_ALL, SHOW_COMPLETED].map((filter) =>
-            <li key={filter}>
-              {this.renderFilterLink(filter)}
-            </li>
-          )}
-        </ul>
-        {this.renderClearButton()}
-      </footer>
-    );
-  }
-}
+      <ul className={style.filters}>
+        {[SHOW_ACTIVE, SHOW_ALL, SHOW_COMPLETED].map((filter) =>
+          <li key={filter}>
+            {filterLink(filter)}
+          </li>
+        )}
+      </ul>
+      {clearButton}
+    </footer>
+  );
+};
 
 Footer.propTypes = {
   activeCount: PropTypes.number.isRequired,

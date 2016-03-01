@@ -7,10 +7,7 @@ export function shallowRender (raw) {
   renderer.render(raw);
   const output = renderer.getRenderOutput();
 
-  return {
-    output,
-    renderer
-  };
+  return {output, renderer};
 }
 
 export function mockStore () {

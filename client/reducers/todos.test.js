@@ -17,7 +17,8 @@ describe('todos reducer', () => {
         id: 1,
         text: 'Run the tests',
         completed: false
-      }, {
+      },
+      {
         id: 0,
         text: 'Use Redux',
         completed: false
@@ -31,7 +32,8 @@ describe('todos reducer', () => {
         id: 1,
         text: 'Run the tests',
         completed: true
-      }, {
+      },
+      {
         id: 0,
         text: 'Use Redux',
         completed: false
@@ -53,7 +55,8 @@ describe('todos reducer', () => {
         id: 1,
         text: 'Run the tests',
         completed: true
-      }, {
+      },
+      {
         id: 0,
         text: 'Use Redux',
         completed: false
@@ -65,7 +68,8 @@ describe('todos reducer', () => {
         id: 1,
         text: 'Run the tests',
         completed: true
-      }, {
+      },
+      {
         id: 0,
         text: 'Use Redux',
         completed: true
@@ -79,7 +83,8 @@ describe('todos reducer', () => {
         id: 1,
         text: 'Run the tests',
         completed: false
-      }, {
+      },
+      {
         id: 0,
         text: 'Use Redux',
         completed: false
@@ -92,7 +97,8 @@ describe('todos reducer', () => {
         text: 'Run the tests',
         completed: true,
         id: 1
-      }, {
+      },
+      {
         id: 0,
         text: 'Use Redux',
         completed: false
@@ -106,7 +112,8 @@ describe('todos reducer', () => {
         id: 1,
         text: 'Run the tests',
         completed: false
-      }, {
+      },
+      {
         id: 0,
         completed: false,
         text: 'Use Redux'
@@ -129,7 +136,8 @@ describe('todos reducer', () => {
         id: 1,
         text: 'Run the tests',
         completed: false
-      }, {
+      },
+      {
         id: 0,
         text: 'Use Redux',
         completed: false
@@ -143,7 +151,8 @@ describe('todos reducer', () => {
         id: 1,
         text: 'Fix the tests',
         completed: false
-      }, {
+      },
+      {
         id: 0,
         text: 'Use Redux',
         completed: false
@@ -172,6 +181,7 @@ describe('todos reducer', () => {
       text: 'Use Redux',
       completed: false
     };
+
     expect(todos(initialState, {})).toEqual(initialState);
   });
 });
