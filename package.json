@@ -31,7 +31,7 @@
     "stylelint-config-richardkall": "~0.1.0",
     "stylelint": "~4.4.0",
     "webpack-dev-middleware": "~1.5.1",
-    "webpack-hot-middleware": "~2.7.1"
+    "webpack-hot-middleware": "~2.8.1"
   },
   "dependencies": {
     "assets-webpack-plugin": "~3.3.0",
