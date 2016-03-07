@@ -45,7 +45,6 @@ export default {
         exclude: /node_modules/
       }
     ]
-
   },
   plugins: [
     new AssetsPlugin({
