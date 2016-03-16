@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import {createRenderer} from 'react-addons-test-utils';
-import thunkMiddleware from 'redux-thunk';
+import thunk from 'redux-thunk';
 
 export function shallowRender (raw) {
   const renderer = createRenderer();
@@ -11,5 +11,5 @@ export function shallowRender (raw) {
 }
 
 export function mockStore () {
-  return configureMockStore([thunkMiddleware]);
+  return configureMockStore([thunk]);
 }

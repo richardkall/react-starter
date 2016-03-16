@@ -54,17 +54,18 @@ describe('TodoActions', () => {
     afterEach(() => nock.cleanAll());
 
     it('creates FETCH_TODOS_SUCCESS action when fetching todos', (done) => {
-      const expectedActions = [{
-        type: types.FETCH_TODOS_SUCCESS,
-        todos: ['item']
-      }];
+      const store = mockStore()({});
 
       nock(API)
         .get('/todos')
         .reply(200, ['item']);
 
-      const store = mockStore()({}, expectedActions, done);
-      store.dispatch(actions.fetchTodos());
+      store.dispatch(actions.fetchTodos())
+        .then(() => {
+          expect(store.getActions()[0]).toEqual(actions.fetchTodosSuccess(['item']));
+        })
+        .then(done)
+        .catch(done);
     });
   });
 });
