@@ -1,5 +1,7 @@
 import * as actions from './TodoActions';
 import * as types from '../constants/ActionTypes';
+import {mockStore} from '../../test/helpers';
+import nock from 'nock';
 
 describe('TodoActions', () => {
   it('creates ADD_TODO action', () => {
@@ -56,7 +58,7 @@ describe('TodoActions', () => {
     it('creates FETCH_TODOS_SUCCESS action when fetching todos', (done) => {
       const store = mockStore()({});
 
-      nock(API)
+      nock('http://localhost:3000/api')
         .get('/todos')
         .reply(200, ['item']);
 
