@@ -8,7 +8,7 @@ const setup = () => {
     addTodo: expect.createSpy()
   };
 
-  const {output} = shallowRender(<Header {...props} />);
+  const {output} = shallow(<Header {...props} />);
 
   return {output, props};
 };

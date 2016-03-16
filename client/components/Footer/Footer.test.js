@@ -13,7 +13,7 @@ const setup = (overrides) => {
     onClearCompleted: expect.createSpy()
   }, overrides);
 
-  const {output} = shallowRender(<Footer {...props} />);
+  const {output} = shallow(<Footer {...props} />);
 
   return {output, props};
 };

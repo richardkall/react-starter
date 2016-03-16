@@ -5,6 +5,6 @@
   },
   "globals": {
     "expect": true,
-    "shallowRender": true
+    "shallow": true
   }
 }

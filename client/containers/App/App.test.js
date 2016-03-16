@@ -17,7 +17,7 @@ const setup = () => {
     }
   };
 
-  const {output} = shallowRender(<App {...props} />);
+  const {output} = shallow(<App {...props} />);
 
   return {output, props};
 };

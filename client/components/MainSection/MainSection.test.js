@@ -29,7 +29,7 @@ const setup = (overrides) => {
     ]
   }, overrides);
 
-  const {output} = shallowRender(<MainSection {...props} />);
+  const {output} = shallow(<MainSection {...props} />);
 
   return {output, props};
 };

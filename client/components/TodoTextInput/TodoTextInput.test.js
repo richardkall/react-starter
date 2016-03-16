@@ -8,7 +8,7 @@ const setup = (overrides) => {
     onSave: expect.createSpy()
   }, overrides);
 
-  const {output, renderer} = shallowRender(<TodoTextInput {...props} />);
+  const {output, renderer} = shallow(<TodoTextInput {...props} />);
 
   return {output, props, renderer};
 };

@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import {createRenderer} from 'react-addons-test-utils';
 import thunk from 'redux-thunk';
 
-export function shallowRender (raw) {
+export function shallow (raw) {
   const renderer = createRenderer();
   renderer.render(raw);
   const output = renderer.getRenderOutput();

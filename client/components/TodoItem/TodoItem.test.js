@@ -14,7 +14,7 @@ const setup = (editing: false) => {
     editTodo: expect.createSpy()
   };
 
-  let {output, renderer} = shallowRender(<TodoItem {...props} />); // eslint-disable-line prefer-const
+  let {output, renderer} = shallow(<TodoItem {...props} />); // eslint-disable-line prefer-const
 
   if (editing) {
     const label = output.props.children.props.children[1];
