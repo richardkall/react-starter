@@ -1,9 +1,9 @@
 import {RouterContext, match} from 'react-router';
+import configureStore, {sagaMiddleware} from '../../client/store/configureStore';
 import {Provider} from 'react-redux';
 import React from 'react';
-import configureStore from '../../client/store/configureStore';
 import createLocation from 'history/lib/createLocation';
-import {fetchTodos} from '../../client/actions/TodoActions';
+import {fetchTodos} from '../../client/sagas/watchFetchTodos';
 import {renderToString} from 'react-dom/server';
 import routes from '../../client/routes';
 
@@ -18,7 +18,7 @@ export default function reactMiddleware (req, res) {
     const assets = require('../../build/assets.json');
     const store = configureStore();
 
-    return store.dispatch(fetchTodos()).then(() => {
+    return sagaMiddleware.run(fetchTodos).done.then(() => {
       const initialState = JSON.stringify(store.getState());
       const content = renderToString(
         <Provider store={store}>

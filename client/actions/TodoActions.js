@@ -1,5 +1,4 @@
 import * as types from '../constants/ActionTypes';
-import fetch from 'isomorphic-fetch';
 
 export function addTodo (text) {
   return {type: types.ADD_TODO, text};
@@ -25,17 +24,14 @@ export function editTodo (id, text) {
   return {type: types.EDIT_TODO, id, text};
 }
 
-export function fetchTodosSuccess (todos) {
-  return {type: types.FETCH_TODOS_SUCCESS, todos};
+export function fetchTodosFail (error) {
+  return {type: types.FETCH_TODOS_FAIL, error};
 }
 
-export function fetchTodos () {
-  const API = process.env.API || 'http://localhost:3000/api';
+export function fetchTodosRequest () {
+  return {type: types.FETCH_TODOS_REQUEST};
+}
 
-  return (dispatch) => {
-    return fetch(`${API}/todos`)
-      .then((response) => response.json())
-      .then((json) => dispatch(fetchTodosSuccess(json)))
-      .catch((error) => console.log(error)); // eslint-disable-line no-console
-  };
+export function fetchTodosSuccess (todos) {
+  return {type: types.FETCH_TODOS_SUCCESS, todos};
 }

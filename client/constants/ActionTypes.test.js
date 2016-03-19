@@ -25,6 +25,14 @@ describe('ActionTypes', () => {
     expect(types.EDIT_TODO).toEqual('EDIT_TODO');
   });
 
+  it('contains FETCH_TODOS_FAIL', () => {
+    expect(types.FETCH_TODOS_FAIL).toEqual('FETCH_TODOS_FAIL');
+  });
+
+  it('contains FETCH_TODOS_REQUEST', () => {
+    expect(types.FETCH_TODOS_REQUEST).toEqual('FETCH_TODOS_REQUEST');
+  });
+
   it('contains FETCH_TODOS_SUCCESS', () => {
     expect(types.FETCH_TODOS_SUCCESS).toEqual('FETCH_TODOS_SUCCESS');
   });

@@ -16,6 +16,7 @@
 - [x] [React Transform HMR](https://github.com/gaearon/react-transform-hmr)
 - [x] [Redux](http://redux.js.org/)
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
+- [x] [Redux Saga](http://yelouafi.github.io/redux-saga/)
 - [x] [Stylelint](http://stylelint.io/)
 - [x] [TodoMVC example](http://todomvc.com/)
 - [x] [Webpack](https://webpack.github.io)
@@ -37,7 +38,9 @@ $ npm install
 │   ├── containers            # Stateful/smart components
 │   ├── reducers              # Redux reducers
 │   ├── routes                # Routes used by React Router (shared with server)
+│   ├── sagas                 # Redux sagas
 │   ├── store                 # Redux store
+│   ├── utils                 # Utilities and helpers
 │   └── index.js              # Entry point for client-side application
 ├── server                    # Source code for Express server
 │   ├── api                   # Mock API

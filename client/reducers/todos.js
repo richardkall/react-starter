@@ -45,6 +45,11 @@ export default function todos (state = [], action) {
     case types.FETCH_TODOS_SUCCESS:
       return action.todos;
 
+    case types.FETCH_TODOS_FAIL:
+      return Object.assign({}, state, {
+        error: action.error
+      });
+
     default:
       return state;
   }

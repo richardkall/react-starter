@@ -1,7 +1,5 @@
 import * as actions from './TodoActions';
 import * as types from '../constants/ActionTypes';
-import {mockStore} from '../../test/helpers';
-import nock from 'nock';
 
 describe('TodoActions', () => {
   it('creates ADD_TODO action', () => {
@@ -45,29 +43,23 @@ describe('TodoActions', () => {
     });
   });
 
+  it('creates FETCH_TODOS_FAIL action', () => {
+    expect(actions.fetchTodosFail('Internal server error')).toEqual({
+      type: types.FETCH_TODOS_FAIL,
+      error: 'Internal server error'
+    });
+  });
+
+  it('creates FETCH_TODOS_REQUEST action', () => {
+    expect(actions.fetchTodosRequest()).toEqual({
+      type: types.FETCH_TODOS_REQUEST
+    });
+  });
+
   it('creates FETCH_TODOS_SUCCESS action', () => {
     expect(actions.fetchTodosSuccess(['item'])).toEqual({
       type: types.FETCH_TODOS_SUCCESS,
       todos: ['item']
-    });
-  });
-
-  describe('async actions', () => {
-    afterEach(() => nock.cleanAll());
-
-    it('creates FETCH_TODOS_SUCCESS action when fetching todos', (done) => {
-      const store = mockStore()({});
-
-      nock('http://localhost:3000/api')
-        .get('/todos')
-        .reply(200, ['item']);
-
-      store.dispatch(actions.fetchTodos())
-        .then(() => {
-          expect(store.getActions()[0]).toEqual(actions.fetchTodosSuccess(['item']));
-        })
-        .then(done)
-        .catch(done);
     });
   });
 });
