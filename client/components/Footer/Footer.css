@@ -87,6 +87,6 @@
 }
 
 .selectedFilter {
-  border-color: rgba(175, 47, 47, .1);
   composes: filter;
+  border-color: rgba(175, 47, 47, .1);
 }
