@@ -1,9 +1,2 @@
-export const ADD_TODO = 'ADD_TODO';
-export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
-export const COMPLETE_ALL = 'COMPLETE_ALL';
-export const COMPLETE_TODO = 'COMPLETE_TODO';
-export const DELETE_TODO = 'DELETE_TODO';
-export const EDIT_TODO = 'EDIT_TODO';
-export const FETCH_TODOS_FAIL = 'FETCH_TODOS_FAIL';
-export const FETCH_TODOS_REQUEST = 'FETCH_TODOS_REQUEST';
-export const FETCH_TODOS_SUCCESS = 'FETCH_TODOS_SUCCESS';
+export const START_LOADING = 'START_LOADING';
+export const STOP_LOADING = 'STOP_LOADING';

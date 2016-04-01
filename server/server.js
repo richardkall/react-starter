@@ -1,4 +1,3 @@
-import api from './api';
 import compression from 'compression';
 import config from '../webpack.config.babel';
 import express from 'express';
@@ -34,7 +33,6 @@ if (DEBUG) {
   server.use(morgan('combined'));
 }
 
-server.use('/api', api);
 server.use(reactMiddleware);
 
 server.listen(server.get('port'), () => {

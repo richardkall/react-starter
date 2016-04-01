@@ -1,6 +1,10 @@
 # React Starter [![Build Status](https://travis-ci.org/richardkall/react-starter.svg?branch=master)](https://travis-ci.org/richardkall/react-starter)
 
-> Boilerplate for universal React applications. ▸ [See demo](https://react-starter-demo.herokuapp.com)
+> Boilerplate for universal React applications.
+
+## Examples
+
+- [TodoMVC](https://github.com/richardkall/react-starter-todomvc) ([demo](https://react-starter-todomvc.herokuapp.com))
 
 ## Features
 
@@ -16,9 +20,7 @@
 - [x] [React Transform HMR](https://github.com/gaearon/react-transform-hmr)
 - [x] [Redux](http://redux.js.org/)
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
-- [x] [Redux Saga](http://yelouafi.github.io/redux-saga/)
 - [x] [Stylelint](http://stylelint.io/)
-- [x] [TodoMVC example](http://todomvc.com/)
 - [x] [Webpack](https://webpack.github.io)
 
 ## Setup
@@ -28,33 +30,6 @@ $ npm install
 ```
 
 ## Usage
-
-```bash
-.
-├── client                    # Source code for client-side application
-│   ├── actions               # Redux action creators
-│   ├── components            # Presentational/dumb components
-│   ├── constants             # Global constants (action types etc.)
-│   ├── containers            # Stateful/smart components
-│   ├── reducers              # Redux reducers
-│   ├── routes                # Routes used by React Router (shared with server)
-│   ├── sagas                 # Redux sagas
-│   ├── store                 # Redux store
-│   ├── utils                 # Utilities and helpers
-│   └── index.js              # Entry point for client-side application
-├── server                    # Source code for Express server
-│   ├── api                   # Mock API
-│   ├── middleware            # Server middleware
-│   ├── views                 # Server views (Jade templates)
-│   ├── index.js              # Entry point for server (with babel-register etc.)
-│   └── server.js             # Express server
-├── test                      # Test setup and helpers
-├── .babelrc                  # Babel configuration
-├── .eslintrc                 # ESLint configuration
-├── .stylelintrc              # Stylelint configuration
-├── browserslist              # Autoprefixer browser list
-└── webpack.config.babel.js   # Webpack configuration
-```
 
 Start development server:
 

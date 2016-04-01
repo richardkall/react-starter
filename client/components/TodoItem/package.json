@@ -1,6 +1,0 @@
-{
-  "name": "TodoItem",
-  "version": "0.0.0",
-  "private": true,
-  "main": "./TodoItem.js"
-}
