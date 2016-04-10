@@ -1,4 +1,8 @@
-import {START_LOADING, STOP_LOADING} from '../constants/ActionTypes';
+import {
+  START_LOADING,
+  STOP_LOADING
+} from '../constants/ActionTypes';
+
 import app from './app';
 
 describe('app reducer', () => {

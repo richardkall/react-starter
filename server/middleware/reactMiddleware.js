@@ -1,4 +1,8 @@
-import {RouterContext, match} from 'react-router';
+import {
+  RouterContext,
+  match
+} from 'react-router';
+
 import {Provider} from 'react-redux';
 import React from 'react';
 import configureStore from '../../client/store/configureStore';

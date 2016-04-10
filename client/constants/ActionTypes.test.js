@@ -1,4 +1,7 @@
-import {START_LOADING, STOP_LOADING} from './ActionTypes';
+import {
+  START_LOADING,
+  STOP_LOADING
+} from './ActionTypes';
 
 describe('ActionTypes', () => {
   it('contains START_LOADING', () => {

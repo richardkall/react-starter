@@ -15,13 +15,13 @@ server.set('view engine', 'jade');
 server.set('views', path.resolve(__dirname, 'views'));
 
 server.use(compression());
+server.use(morgan(DEBUG ? 'dev' : 'combined'));
 
 if (DEBUG) {
   const compiler = webpack(config);
   const webpackHotMiddleware = require('webpack-hot-middleware');
   const webpackMiddleware = require('webpack-dev-middleware');
 
-  server.use(morgan('dev'));
   server.use(webpackMiddleware(compiler, {
     historyApiFallback: true,
     hot: true,
@@ -30,7 +30,6 @@ if (DEBUG) {
   server.use(webpackHotMiddleware(compiler));
 } else {
   server.use(express.static(path.resolve(__dirname, '../build')));
-  server.use(morgan('combined'));
 }
 
 server.use(reactMiddleware);

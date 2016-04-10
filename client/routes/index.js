@@ -1,4 +1,9 @@
-import {Route, Router, browserHistory} from 'react-router';
+import {
+  Route,
+  Router,
+  browserHistory
+} from 'react-router';
+
 import App from '../containers/App';
 import React from 'react';
 
