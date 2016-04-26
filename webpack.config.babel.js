@@ -41,7 +41,7 @@ export default {
         } : {}
       },
       {
-        test: /\.gif$|\.jpe?g$|\.png$|\.svg$/i,
+        test: /\.(eot|gif|jpe?g|png|svg|woff2?|ttf)$/,
         loader: `url?limit=10000&name=[name]${DEBUG ? '' : '.[hash:7]'}.[ext]`,
         exclude: /node_modules/
       }
