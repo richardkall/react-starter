@@ -7,10 +7,9 @@ import reactMiddleware from './middleware/reactMiddleware';
 import webpack from 'webpack';
 
 const DEBUG = process.env.NODE_ENV !== 'production';
+const PORT = process.env.PORT || 3000;
 const server = express();
 
-server.set('env', DEBUG ? 'development' : 'production');
-server.set('port', process.env.PORT || 3000);
 server.set('view engine', 'jade');
 server.set('views', path.resolve(__dirname, 'views'));
 
@@ -34,6 +33,6 @@ if (DEBUG) {
 
 server.use(reactMiddleware);
 
-server.listen(server.get('port'), () => {
-  console.info(`Server running in ${server.get('env')} on port ${server.get('port')}`); // eslint-disable-line no-console
-});
+server.listen(PORT, () =>
+  console.info(`Server running in ${server.get('env')} on port ${PORT}`)
+);

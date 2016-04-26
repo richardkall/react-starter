@@ -4,13 +4,13 @@ import {
   browserHistory
 } from 'react-router';
 
-import App from '../containers/App';
 import React from 'react';
+import Root from '../containers/Root';
 
 export default (
   <Router history={browserHistory}>
     <Route
-      component={App}
+      component={Root}
       path='/'
     />
   </Router>

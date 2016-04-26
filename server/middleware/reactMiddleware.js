@@ -20,7 +20,6 @@ export default function reactMiddleware (req, res) {
 
     const assets = require('../../build/assets.json');
     const store = configureStore();
-
     const initialState = JSON.stringify(store.getState());
     const content = renderToString(
       <Provider store={store}>
@@ -28,6 +27,10 @@ export default function reactMiddleware (req, res) {
       </Provider>
     );
 
-    return res.render('index', {content, assets, initialState});
+    return res.render('index', {
+      assets,
+      content,
+      initialState
+    });
   });
 }

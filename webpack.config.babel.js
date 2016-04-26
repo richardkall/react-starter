@@ -8,9 +8,10 @@ import webpack from 'webpack';
 const DEBUG = process.env.NODE_ENV !== 'production';
 
 export default {
-  entry: DEBUG
-    ? ['webpack-hot-middleware/client', './index.js']
-    : './index.js',
+  entry: DEBUG ? [
+    'webpack-hot-middleware/client',
+    './index.js'
+  ] : './index.js',
   context: path.resolve(__dirname, './client'),
   output: {
     filename: `[name]${DEBUG ? '' : '.[hash]'}.js`,
