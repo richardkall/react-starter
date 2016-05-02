@@ -70,6 +70,11 @@ export default {
   ],
   postcss: [
     nested(),
-    autoprefixer()
+    autoprefixer({
+      browsers: [
+        '> 1%',
+        'last 2 versions'
+      ]
+    })
   ]
 };
