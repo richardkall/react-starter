@@ -21,7 +21,6 @@
 - [x] [React Transform HMR](https://github.com/gaearon/react-transform-hmr)
 - [x] [Redux](http://redux.js.org/)
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
-- [x] [Stylelint](http://stylelint.io/)
 - [x] [Webpack](https://webpack.github.io)
 
 ## Setup

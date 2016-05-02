@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production webpack -c --progress",
-    "lint": "eslint --ignore-path .gitignore . && stylelint client/**/*.css",
+    "lint": "eslint --ignore-path .gitignore .",
     "prebuild": "rm -rf build/*",
     "prestart": "npm run build",
     "start": "NODE_ENV=production node server",
@@ -24,8 +24,6 @@
     "nodemon": "1.9.2",
     "react-addons-test-utils": "15.0.2",
     "react-transform-hmr": "1.0.4",
-    "stylelint-config-richardkall": "6.2.2",
-    "stylelint": "6.2.2",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0"
   },
