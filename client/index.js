@@ -1,7 +1,8 @@
-import {Provider} from 'react-redux';
 import React from 'react';
-import configureStore from './store/configureStore';
+import {Provider} from 'react-redux';
 import {render} from 'react-dom';
+
+import configureStore from './store/configureStore';
 import routes from './routes';
 
 const initialState = window.__INITIAL_STATE__;

@@ -9,9 +9,6 @@ import Root from '../containers/Root';
 
 export default (
   <Router history={browserHistory}>
-    <Route
-      component={Root}
-      path='/'
-    />
+    <Route component={Root} path='/' />
   </Router>
 );

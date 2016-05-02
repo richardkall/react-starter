@@ -5,5 +5,8 @@ export function shallow (raw) {
   renderer.render(raw);
   const output = renderer.getRenderOutput();
 
-  return {output, renderer};
+  return {
+    output,
+    renderer
+  };
 }

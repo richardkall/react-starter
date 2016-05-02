@@ -7,8 +7,8 @@ const initialState = {
   loading: false
 };
 
-export default function app (state = initialState, action) {
-  switch (action.type) {
+export default function app (state = initialState, {type}) {
+  switch (type) {
     case START_LOADING:
       return Object.assign({}, state, {
         loading: true

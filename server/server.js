@@ -1,10 +1,11 @@
 import compression from 'compression';
-import config from '../webpack.config.babel';
 import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
-import reactMiddleware from './middleware/reactMiddleware';
 import webpack from 'webpack';
+
+import config from '../webpack.config.babel';
+import reactMiddleware from './middleware/reactMiddleware';
 
 const DEBUG = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 3000;
