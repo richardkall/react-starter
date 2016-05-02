@@ -10,7 +10,7 @@ const DEBUG = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 3000;
 const server = express();
 
-server.set('view engine', 'jade');
+server.set('view engine', 'pug');
 server.set('views', path.resolve(__dirname, 'views'));
 
 server.use(compression());
