@@ -3,10 +3,10 @@ import {
   STOP_LOADING
 } from '../constants/ActionTypes';
 
-export function startLoading () {
-  return {type: START_LOADING};
-}
+export const startLoading = () => ({
+  type: START_LOADING
+});
 
-export function stopLoading () {
-  return {type: STOP_LOADING};
-}
+export const stopLoading = () => ({
+  type: STOP_LOADING
+});

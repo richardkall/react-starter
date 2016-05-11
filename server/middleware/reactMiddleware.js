@@ -11,7 +11,7 @@ import {renderToString} from 'react-dom/server';
 import configureStore from '../../client/store/configureStore';
 import routes from '../../client/routes';
 
-export default function reactMiddleware ({url}, res) {
+export default ({url}, res) => {
   const location = createLocation(url);
 
   match({routes, location}, (error, redirectLocation, renderProps) => {
@@ -38,4 +38,4 @@ export default function reactMiddleware ({url}, res) {
       initialState
     });
   });
-}
+};
