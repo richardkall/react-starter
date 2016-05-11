@@ -1,6 +1,7 @@
 import {match} from 'react-router';
 import createLocation from 'history/lib/createLocation';
 
+import NotFound from '../../../client/views/NotFound';
 import routes from '../../../client/routes';
 import renderApp from './renderApp';
 
@@ -16,6 +17,10 @@ export default ({url}, res) => {
       return res.status(404).send('Not Found');
     }
 
-    return res.send(`<!doctype html>${renderApp(renderProps)}`);
+    const isNotFound = renderProps.components.indexOf(NotFound) !== -1;
+
+    return res
+      .status(isNotFound ? 404 : 200)
+      .send(`<!doctype html>${renderApp(renderProps)}`);
   });
 };

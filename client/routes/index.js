@@ -5,10 +5,13 @@ import {
 } from 'react-router';
 
 import React from 'react';
-import Root from '../containers/Root';
+import Root from '../views/Root';
+import NotFound from '../views/NotFound';
 
 export default (
   <Router history={browserHistory}>
-    <Route component={Root} path='/' />
+    <Route component={Root} path='/'>
+      <Route component={NotFound} isNotFound path='*' />
+    </Route>
   </Router>
 );
