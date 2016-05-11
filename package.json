@@ -13,7 +13,6 @@
     "test-watch": "NODE_ENV=test mocha -R min -w"
   },
   "devDependencies": {
-    "babel-eslint": "6.0.4",
     "babel-plugin-react-transform": "2.0.2",
     "eslint-config-richardkall": "richardkall/eslint-config-richardkall",
     "eslint-plugin-react": "5.1.1",
