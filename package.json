@@ -14,9 +14,9 @@
   },
   "devDependencies": {
     "babel-plugin-react-transform": "2.0.2",
-    "eslint-config-richardkall": "richardkall/eslint-config-richardkall",
+    "eslint-config-richardkall": "2.10.0",
     "eslint-plugin-react": "5.1.1",
-    "eslint": "2.9.0",
+    "eslint": "2.10.0",
     "expect-jsx": "2.5.1",
     "expect": "1.20.1",
     "mocha": "2.4.5",
