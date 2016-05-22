@@ -8,10 +8,10 @@ import {Provider} from 'react-redux';
 import {RouterContext} from 'react-router';
 
 import App from '../../views/App';
-import assets from '../../../build/assets.json';
 import configureStore from '../../../client/store/configureStore';
 
 export default (renderProps) => {
+  const assets = require('../../../build/assets.json');
   const store = configureStore();
   const initialState = store.getState();
   const content = renderToString(
