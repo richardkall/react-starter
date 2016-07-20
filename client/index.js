@@ -1,16 +1,13 @@
 import React from 'react';
-import {Provider} from 'react-redux';
 import {render} from 'react-dom';
 
-import configureStore from './store/configureStore';
-import routes from './routes';
+import Root from './components/Root';
+import configureStore from './configureStore';
 
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 
 render(
-  <Provider store={store}>
-    {routes}
-  </Provider>,
+  <Root store={store} />,
   document.getElementById('root')
 );

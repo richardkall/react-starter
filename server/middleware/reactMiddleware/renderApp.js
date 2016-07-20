@@ -8,7 +8,7 @@ import {Provider} from 'react-redux';
 import {RouterContext} from 'react-router';
 
 import App from '../../views/App';
-import configureStore from '../../../client/store/configureStore';
+import configureStore from '../../../client/configureStore';
 
 export default (renderProps) => {
   const assets = require('../../../build/assets.json');
