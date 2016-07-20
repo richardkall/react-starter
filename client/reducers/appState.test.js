@@ -3,11 +3,11 @@ import {
   STOP_LOADING
 } from '../constants/ActionTypes';
 
-import app from './app';
+import appState from './appState';
 
 describe('app reducer', () => {
   it('handles START_LOADING', () => {
-    expect(app({
+    expect(appState({
       loading: false
     }, {
       type: START_LOADING
@@ -17,7 +17,7 @@ describe('app reducer', () => {
   });
 
   it('handles STOP_LOADING', () => {
-    expect(app({
+    expect(appState({
       loading: 123
     }, {
       type: STOP_LOADING
@@ -27,7 +27,7 @@ describe('app reducer', () => {
   });
 
   it('handles initial state', () => {
-    expect(app({
+    expect(appState({
       loading: false
     }, {})).toEqual({
       loading: false

@@ -16,8 +16,8 @@ App.propTypes = {
   loading: PropTypes.bool
 };
 
-const mapStateToProps = ({app}) => ({
-  loading: app.loading
+const mapStateToProps = ({appState}) => ({
+  loading: appState.loading
 });
 
 export default connect(mapStateToProps)(App);
