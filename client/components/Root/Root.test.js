@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Root from '.';
+import Root from './Root';
 import routes from '../../routes';
 
 const Provider = () => {};

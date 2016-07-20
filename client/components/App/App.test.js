@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {App} from '.';
+import {App} from './App';
 import style from './App.css';
 
 const Link = () => {};
