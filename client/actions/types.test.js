@@ -1,9 +1,9 @@
 import {
   START_LOADING,
   STOP_LOADING
-} from './ActionTypes';
+} from './types';
 
-describe('ActionTypes', () => {
+describe('Types', () => {
   it('contains START_LOADING', () => {
     expect(START_LOADING).toEqual('START_LOADING');
   });

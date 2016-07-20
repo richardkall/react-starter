@@ -1,7 +1,7 @@
 import {
   START_LOADING,
   STOP_LOADING
-} from '../constants/ActionTypes';
+} from '../actions/types';
 
 const initialState = {
   loading: false
