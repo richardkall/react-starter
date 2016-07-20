@@ -2,33 +2,26 @@ import compression from 'compression';
 import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
-import webpack from 'webpack';
 
-import config from '../webpack.config.babel';
+import {
+  webpackMiddleware,
+  webpackHotMiddleware
+} from './middleware/webpackMiddleware';
+
 import reactMiddleware from './middleware/reactMiddleware';
 
 const DEBUG = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 3000;
 const server = express();
 
-server.use(compression());
-server.use(morgan(DEBUG ? 'dev' : 'combined'));
-
 if (DEBUG) {
-  const compiler = webpack(config);
-  const webpackHotMiddleware = require('webpack-hot-middleware');
-  const webpackMiddleware = require('webpack-dev-middleware');
-
-  server.use(webpackMiddleware(compiler, {
-    historyApiFallback: true,
-    hot: true,
-    quiet: true
-  }));
-  server.use(webpackHotMiddleware(compiler));
-} else {
-  server.use(express.static(path.resolve(__dirname, '../build')));
+  server.use(webpackMiddleware);
+  server.use(webpackHotMiddleware);
 }
 
+server.use(compression());
+server.use(express.static(path.resolve(__dirname, '../build')));
+server.use(morgan(DEBUG ? 'dev' : 'combined'));
 server.use(reactMiddleware);
 
 server.listen(PORT, () =>
