@@ -1,12 +1,12 @@
 import React from 'react';
 
-import {Root} from '.';
-import style from './Root.css';
+import {App} from '.';
+import style from './App.css';
 
-describe('Root', () => {
+describe('App', () => {
   it('renders correctly', () => {
     const props = {loading: false};
-    const {output} = shallow(<Root {...props} />);
+    const {output} = shallow(<App {...props} />);
 
     expect(output).toEqualJSX(
       <div className={style.root}>
@@ -17,7 +17,7 @@ describe('Root', () => {
 
   it('renders correctly when loading=true', () => {
     const props = {loading: true};
-    const {output} = shallow(<Root {...props} />);
+    const {output} = shallow(<App {...props} />);
 
     expect(output).toEqualJSX(
       <div className={style.root}>
