@@ -7,7 +7,7 @@ describe('NotFound', () => {
     const {output} = shallow(<NotFound />);
 
     expect(output).toEqualJSX(
-      <h2>404: Page Not Found</h2>
+      <h1>404: Page Not Found</h1>
     );
   });
 });

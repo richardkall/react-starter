@@ -3,6 +3,8 @@ import React from 'react';
 import {App} from '.';
 import style from './App.css';
 
+const Link = () => {};
+
 describe('App', () => {
   it('renders correctly', () => {
     const props = {loading: false};
@@ -10,7 +12,7 @@ describe('App', () => {
 
     expect(output).toEqualJSX(
       <div className={style.root}>
-        <h1>Hello World</h1>
+        <Link style={{}} to='/'>Home</Link>
       </div>
     );
   });
@@ -21,7 +23,7 @@ describe('App', () => {
 
     expect(output).toEqualJSX(
       <div className={style.root}>
-        <h1>Hello World</h1>
+        <Link style={{}} to='/'>Home</Link>
         Loading...
       </div>
     );
