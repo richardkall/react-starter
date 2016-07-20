@@ -9,6 +9,7 @@ import {
 } from 'react-router';
 
 import React from 'react';
+import Helmet from 'react-helmet';
 import {Provider} from 'react-redux';
 import {createLocation} from 'history/lib/LocationUtils';
 
@@ -27,8 +28,15 @@ const renderApp = (renderProps) => {
     </Provider>
   );
 
+  const head = Helmet.rewind();
+
   return renderToStaticMarkup(
-    <App assets={assets} content={content} initialState={initialState} />
+    <App
+      assets={assets}
+      content={content}
+      head={head}
+      initialState={initialState}
+    />
   );
 };
 

@@ -17,6 +17,7 @@
 - [x] [Mocha](https://mochajs.org/)
 - [x] [PostCSS](https://github.com/postcss/postcss)
 - [x] [React](http://facebook.github.io/react/)
+- [x] [React Helmet](https://github.com/nfl/react-helmet)
 - [x] [React Router](https://github.com/reactjs/react-router)
 - [x] [React Transform HMR](https://github.com/gaearon/react-transform-hmr)
 - [x] [Redux](http://redux.js.org/)
