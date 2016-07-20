@@ -1,7 +1,7 @@
 import {match} from 'react-router';
 import {createLocation} from 'history/lib/LocationUtils';
 
-import NotFound from '../../../client/views/NotFound';
+import NotFound from '../../../client/components/NotFound';
 import routes from '../../../client/routes';
 import renderApp from './renderApp';
 

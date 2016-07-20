@@ -5,8 +5,8 @@ import {
 } from 'react-router';
 
 import React from 'react';
-import App from '../views/App';
-import NotFound from '../views/NotFound';
+import App from '../components/App';
+import NotFound from '../components/NotFound';
 
 export default (
   <Router history={browserHistory}>
