@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-export const Home = () => (
+const Home = () => (
   <span>
     <Helmet title='Home' />
     <h1>Welcome</h1>
