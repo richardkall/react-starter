@@ -10,6 +10,7 @@ const DEBUG = process.env.NODE_ENV !== 'production';
 export default {
   entry: DEBUG ? [
     'webpack-hot-middleware/client',
+    'react-hot-loader/patch',
     './index.js'
   ] : './index.js',
   context: path.resolve(__dirname, './client'),
@@ -29,16 +30,7 @@ export default {
       {
         test: /\.js$/,
         loader: 'babel',
-        exclude: /node_modules/,
-        query: DEBUG ? {
-          plugins: [['react-transform', {
-            transforms: [{
-              transform: 'react-transform-hmr',
-              imports: ['react'],
-              locals: ['module']
-            }]
-          }]]
-        } : {}
+        exclude: /node_modules/
       },
       {
         test: /\.(eot|gif|jpe?g|png|svg|woff2?|ttf)$/,

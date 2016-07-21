@@ -13,7 +13,6 @@
     "test-watch": "NODE_ENV=test mocha -R min -w"
   },
   "devDependencies": {
-    "babel-plugin-react-transform": "2.0.2",
     "eslint-config-richardkall": "3.1.0",
     "eslint-plugin-react": "5.2.2",
     "eslint": "3.1.0",
@@ -21,8 +20,8 @@
     "expect": "1.20.2",
     "mocha": "2.5.3",
     "nodemon": "1.9.2",
+    "react-hot-loader": "3.0.0-beta.2",
     "react-addons-test-utils": "15.2.1",
-    "react-transform-hmr": "1.0.4",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.12.1"
   },
