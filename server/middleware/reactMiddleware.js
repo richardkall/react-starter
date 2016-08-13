@@ -13,7 +13,7 @@ import {
   renderToString
 } from 'react-dom/server';
 
-import App from '../views/App';
+import Html from '../../client/components/Html';
 import NotFound from '../../client/components/NotFound';
 import configureStore from '../../client/configureStore';
 import routes from '../../client/routes';
@@ -30,7 +30,7 @@ const renderApp = (renderProps) => {
   const head = Helmet.rewind();
 
   return renderToStaticMarkup(
-    <App
+    <Html
       assets={assets}
       content={content}
       head={head}

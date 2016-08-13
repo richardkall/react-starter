@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 
-const App = ({assets, content, head, initialState}) => (
+const Html = ({assets, content, head, initialState}) => (
   <html>
     <head>
       <meta charSet='utf-8' />
@@ -17,11 +17,11 @@ const App = ({assets, content, head, initialState}) => (
   </html>
 );
 
-App.propTypes = {
+Html.propTypes = {
   assets: PropTypes.object.isRequired,
   content: PropTypes.string.isRequired,
   head: PropTypes.object.isRequired,
   initialState: PropTypes.object.isRequired
 };
 
-export default App;
+export default Html;

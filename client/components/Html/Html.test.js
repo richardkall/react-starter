@@ -1,8 +1,8 @@
 import React from 'react';
 
-import App from '.';
+import Html from '.';
 
-describe('App', () => {
+describe('Html', () => {
   it('renders correctly', () => {
     const props = {
       assets: {
@@ -22,7 +22,7 @@ describe('App', () => {
       },
       initialState: {app: {firstState: 'yes'}}
     };
-    const {output} = shallow(<App {...props} />);
+    const {output} = shallow(<Html {...props} />);
 
     expect(output).toEqualJSX(
       <html>
