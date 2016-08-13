@@ -6,7 +6,9 @@ import autoprefixer from 'autoprefixer';
 import nested from 'postcss-nested';
 import webpack from 'webpack';
 
-const DEBUG = process.env.NODE_ENV !== 'production';
+import config from './config';
+
+const DEBUG = config.env !== 'production';
 
 export default {
   entry: DEBUG ? [
@@ -25,7 +27,7 @@ export default {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', `css?modules&importLoaders=1&localIdentName=[name]__[local]${DEBUG ? '' : '-[hash:base64:4]'}!postcss`),
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss'),
         exclude: /node_modules/
       },
       {
