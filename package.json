@@ -13,15 +13,16 @@
     "test-watch": "NODE_ENV=test mocha -R min -w"
   },
   "devDependencies": {
-    "eslint-config-richardkall": "3.1.0",
-    "eslint-plugin-react": "5.2.2",
-    "eslint": "3.1.0",
-    "expect-jsx": "2.6.0",
+    "eslint": "3.3.0",
+    "eslint-config-richardkall": "4.1.0",
+    "eslint-plugin-import": "1.13.0",
+    "eslint-plugin-react": "6.0.0",
     "expect": "1.20.2",
+    "expect-jsx": "2.6.0",
     "mocha": "3.0.2",
     "nodemon": "1.10.0",
-    "react-hot-loader": "3.0.0-beta.2",
     "react-addons-test-utils": "15.3.0",
+    "react-hot-loader": "3.0.0-beta.2",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.12.2"
   },
