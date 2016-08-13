@@ -1,6 +1,6 @@
 # React Starter [![Build Status](https://travis-ci.org/richardkall/react-starter.svg?branch=master)](https://travis-ci.org/richardkall/react-starter)
 
-> Boilerplate for universal React applications.
+> Starter kit for creating universal React applications.
 
 ## Examples
 
