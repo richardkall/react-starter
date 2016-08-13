@@ -15,7 +15,7 @@ export default (
   <Router history={browserHistory}>
     <Route component={App} path='/'>
       <IndexRoute component={Home} />
-      <Route component={NotFound} isNotFound path='*' />
+      <Route component={NotFound} path='*' />
     </Route>
   </Router>
 );
