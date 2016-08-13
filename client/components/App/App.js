@@ -3,11 +3,13 @@ import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 
+import config from '../../../config';
+
 import style from './App.css';
 
 export const App = ({children, loading}) => (
   <div className={style.root}>
-    <Helmet titleTemplate='%s - React Starter' />
+    <Helmet titleTemplate={`%s - ${config.meta.title}`} />
     <Link to='/'>Home</Link>
     {loading && 'Loading...'}
     {children}
