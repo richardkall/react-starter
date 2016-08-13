@@ -1,5 +1,5 @@
-import React, {PropTypes} from 'react';
 import Helmet from 'react-helmet';
+import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 

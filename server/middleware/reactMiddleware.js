@@ -1,17 +1,17 @@
-import {
-  renderToStaticMarkup,
-  renderToString
-} from 'react-dom/server';
+import Helmet from 'react-helmet';
+import React from 'react';
+import {Provider} from 'react-redux';
+import {createLocation} from 'history/lib/LocationUtils';
 
 import {
   RouterContext,
   match
 } from 'react-router';
 
-import React from 'react';
-import Helmet from 'react-helmet';
-import {Provider} from 'react-redux';
-import {createLocation} from 'history/lib/LocationUtils';
+import {
+  renderToStaticMarkup,
+  renderToString
+} from 'react-dom/server';
 
 import App from '../views/App';
 import NotFound from '../../client/components/NotFound';
@@ -19,7 +19,7 @@ import configureStore from '../../client/configureStore';
 import routes from '../../client/routes';
 
 const renderApp = (renderProps) => {
-  const assets = require('../../build/assets.json');
+  const assets = require('../../build/assets.json'); // eslint-disable-line global-require, import/newline-after-import
   const store = configureStore();
   const initialState = store.getState();
   const content = renderToString(
@@ -27,7 +27,6 @@ const renderApp = (renderProps) => {
       <RouterContext {...renderProps} />
     </Provider>
   );
-
   const head = Helmet.rewind();
 
   return renderToStaticMarkup(

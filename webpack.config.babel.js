@@ -1,8 +1,9 @@
+import path from 'path';
+
 import AssetsPlugin from 'assets-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import nested from 'postcss-nested';
-import path from 'path';
 import webpack from 'webpack';
 
 const DEBUG = process.env.NODE_ENV !== 'production';

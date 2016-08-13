@@ -1,11 +1,11 @@
+import React from 'react';
+
 import {
   IndexRoute,
   Route,
   Router,
   browserHistory
 } from 'react-router';
-
-import React from 'react';
 
 import App from './components/App';
 import Home from './components/Home';

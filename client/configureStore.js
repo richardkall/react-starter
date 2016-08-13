@@ -6,5 +6,7 @@ export default (initialState) =>
   createStore(
     reducer,
     initialState,
-    typeof window !== 'undefined' && window.devToolsExtension ? window.devToolsExtension() : (f) => f
+    typeof window !== 'undefined' && window.devToolsExtension
+      ? window.devToolsExtension()
+      : (f) => f
   );
