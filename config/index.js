@@ -1,14 +1,9 @@
-const {
-  NODE_ENV,
-  PORT
-} = process.env;
-
 export default {
-  env: NODE_ENV || 'development',
+  env: process.env.NODE_ENV || 'development',
   meta: {
     title: 'React Starter'
   },
   server: {
-    port: PORT || 3000
+    port: process.env.PORT || 3000
   }
 };
