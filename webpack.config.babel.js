@@ -8,16 +8,18 @@ import webpack from 'webpack';
 
 import config from './config';
 
-const DEBUG = config.env !== 'production';
+const isProduction = config.env === 'production';
 
 export default {
-  entry: DEBUG ? [
+  entry: isProduction ? [
+    './index.js'
+  ] : [
     'webpack-hot-middleware/client',
     './index.js'
-  ] : './index.js',
+  ],
   context: path.resolve(__dirname, './client'),
   output: {
-    filename: `[name]${DEBUG ? '' : '.[hash]'}.js`,
+    filename: `[name]${isProduction && '.[hash]'}.js`,
     hashDigestLength: 7,
     path: path.resolve(__dirname, './build'),
     publicPath: '/'
@@ -36,7 +38,7 @@ export default {
       },
       {
         test: /\.(eot|gif|jpe?g|png|svg|woff2?|ttf)$/,
-        loader: `url?limit=10000&name=[name]${DEBUG ? '' : '.[hash:7]'}.[ext]`,
+        loader: `url?limit=10000&name=[name]${isProduction && '.[hash:7]'}.[ext]`,
         exclude: /node_modules/
       }
     ]
@@ -46,13 +48,11 @@ export default {
       filename: 'assets.json',
       path: 'build'
     }),
-    new ExtractTextPlugin(`[name]${DEBUG ? '' : '.[hash]'}.css`),
+    new ExtractTextPlugin(`[name]${isProduction && '.[hash]'}.css`),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(DEBUG ? 'development' : 'production')
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
-    ...DEBUG ? [
-      new webpack.HotModuleReplacementPlugin()
-    ] : [
+    ...isProduction ? [
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.UglifyJsPlugin({
@@ -60,6 +60,8 @@ export default {
           warnings: false
         }
       })
+    ] : [
+      new webpack.HotModuleReplacementPlugin()
     ]
   ],
   postcss: [
