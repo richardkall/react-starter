@@ -21,7 +21,7 @@ Html.propTypes = {
   assets: PropTypes.object.isRequired,
   content: PropTypes.string.isRequired,
   head: PropTypes.object.isRequired,
-  initialState: PropTypes.object.isRequired
+  initialState: PropTypes.object
 };
 
 export default Html;

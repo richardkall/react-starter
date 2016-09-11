@@ -6,11 +6,7 @@ import morgan from 'morgan';
 
 import config from '../config';
 import reactMiddleware from './middleware/reactMiddleware';
-
-import {
-  webpackMiddleware,
-  webpackHotMiddleware
-} from './middleware/webpackMiddleware';
+import {webpackMiddleware, webpackHotMiddleware} from './middleware/webpackMiddleware';
 
 const isProduction = config.env === 'production';
 const server = express();
