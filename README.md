@@ -2,11 +2,6 @@
 
 > Starter kit for creating universal React applications.
 
-## Examples
-
-- [TodoMVC](https://github.com/richardkall/react-starter-todomvc) ([demo](https://react-starter-todomvc.herokuapp.com))
-- [Hacker News Reader](https://github.com/richardkall/react-starter-hn) ([demo](https://react-starter-hn.herokuapp.com))
-
 ## Features
 
 - [x] [Autoprefixer](https://github.com/postcss/autoprefixer)
