@@ -1,12 +1,12 @@
 import Helmet from 'react-helmet';
 import React from 'react';
+import {Provider} from 'react-redux';
 import {RouterContext, match} from 'react-router';
 import {createLocation} from 'history/LocationUtils';
 import {renderToStaticMarkup, renderToString} from 'react-dom/server';
 
 import Html from '../../client/components/Html';
 import NotFound from '../../client/routes/NotFound';
-import Root from '../../client/components/Root';
 import configureStore from '../../client/configureStore';
 import routes from '../../client/routes';
 
@@ -15,9 +15,9 @@ const renderApp = (renderProps) => {
   const store = configureStore();
   const initialState = store.getState();
   const content = renderToString(
-    <Root store={store}>
+    <Provider store={store}>
       <RouterContext {...renderProps} />
-    </Root>
+    </Provider>
   );
   const head = Helmet.rewind();
 

@@ -15,6 +15,7 @@ export default {
     './index.js'
   ] : [
     'webpack-hot-middleware/client',
+    'react-hot-loader/patch',
     './index.js'
   ],
   context: path.resolve(__dirname, './client'),

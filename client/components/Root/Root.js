@@ -1,14 +1,15 @@
 import React, {PropTypes} from 'react';
 import {Provider} from 'react-redux';
 
-const Root = ({children, store}) => (
+import routes from '../../routes';
+
+const Root = ({store}) => (
   <Provider store={store}>
-    {children}
+    {routes}
   </Provider>
 );
 
 Root.propTypes = {
-  children: PropTypes.object.isRequired,
   store: PropTypes.object.isRequired
 };
 
