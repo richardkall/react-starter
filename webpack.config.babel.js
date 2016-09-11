@@ -19,8 +19,7 @@ export default {
   ],
   context: path.resolve(__dirname, './client'),
   output: {
-    filename: `[name]${isProduction && '.[hash]'}.js`,
-    hashDigestLength: 7,
+    filename: '[name].[hash:7].js',
     path: path.resolve(__dirname, './build'),
     publicPath: '/'
   },
@@ -28,18 +27,25 @@ export default {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss'),
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss')
       },
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         loader: 'babel',
-        exclude: /node_modules/
+        query: {
+          cacheDirectory: !isProduction
+        }
       },
       {
-        test: /\.(eot|gif|jpe?g|png|svg|woff2?|ttf)$/,
-        loader: `url?limit=10000&name=[name]${isProduction && '.[hash:7]'}.[ext]`,
-        exclude: /node_modules/
+        test: /\.(eot|gif|jpe?g|otf|png|svg|webp|woff|woff2?|ttf)$/,
+        exclude: /node_modules/,
+        loader: 'url',
+        query: {
+          limit: 10000,
+          name: '[name].[hash:7].[ext]'
+        }
       }
     ]
   },
@@ -48,7 +54,7 @@ export default {
       filename: 'assets.json',
       path: 'build'
     }),
-    new ExtractTextPlugin(`[name]${isProduction && '.[hash]'}.css`),
+    new ExtractTextPlugin('[name].[contenthash:7].css'),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
@@ -58,6 +64,9 @@ export default {
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
+        },
+        output: {
+          comments: false
         }
       })
     ] : [
@@ -66,11 +75,11 @@ export default {
   ],
   postcss: [
     nested(),
-    autoprefixer({
-      browsers: [
-        '> 1%',
-        'last 2 versions'
-      ]
-    })
-  ]
+    autoprefixer()
+  ],
+  bail: isProduction,
+  cache: !isProduction,
+  stats: {
+    children: false
+  }
 };
