@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack -c --progress",
     "lint": "eslint --ignore-path .gitignore .",
-    "prebuild": "rm -rf build/*",
+    "prebuild": "rimraf build/*",
     "prestart": "npm run build",
     "start": "node server",
     "start-dev": "nodemon server -w server"
@@ -16,6 +16,7 @@
     "eslint-plugin-import": "1.14.0",
     "eslint-plugin-react": "6.2.0",
     "nodemon": "1.10.2",
+    "rimraf": "2.5.4",
     "webpack-dev-middleware": "1.7.0",
     "webpack-hot-middleware": "2.12.2"
   },
