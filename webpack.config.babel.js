@@ -13,7 +13,6 @@ const DEBUG = config.env !== 'production';
 export default {
   entry: DEBUG ? [
     'webpack-hot-middleware/client',
-    'react-hot-loader/patch',
     './index.js'
   ] : './index.js',
   context: path.resolve(__dirname, './client'),

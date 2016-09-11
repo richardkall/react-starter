@@ -17,7 +17,6 @@
 - [x] [PostCSS](https://github.com/postcss/postcss)
 - [x] [React](http://facebook.github.io/react/)
 - [x] [React Helmet](https://github.com/nfl/react-helmet)
-- [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader)
 - [x] [React Router](https://github.com/reactjs/react-router)
 - [x] [Redux](http://redux.js.org/)
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)

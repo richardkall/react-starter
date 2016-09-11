@@ -1,5 +1,4 @@
 import React from 'react';
-import {AppContainer} from 'react-hot-loader';
 import {render} from 'react-dom';
 
 import Root from './components/Root';
@@ -9,21 +8,10 @@ const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 
 render(
-  <AppContainer>
-    <Root store={store} />
-  </AppContainer>,
+  <Root store={store} />,
   document.getElementById('root')
 );
 
 if (module.hot) {
-  module.hot.accept('./components/Root', () => {
-    const NextRoot = require('./components/Root').default; // eslint-disable-line global-require
-
-    render(
-      <AppContainer>
-        <NextRoot store={store} />
-      </AppContainer>,
-      document.getElementById('root')
-    );
-  });
+  module.hot.accept();
 }
