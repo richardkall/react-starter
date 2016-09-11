@@ -1,7 +1,6 @@
 import {combineReducers} from 'redux';
-
-import appState from './appState';
+// import todos from './todos';
 
 export default combineReducers({
-  appState
+  // todos
 });
