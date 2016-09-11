@@ -1,3 +1,0 @@
---compilers js:babel-core/register
--r ./test/setup.js
-./client/**/*.test.js

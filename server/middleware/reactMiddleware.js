@@ -1,7 +1,7 @@
 import Helmet from 'react-helmet';
 import React from 'react';
 import {Provider} from 'react-redux';
-import {createLocation} from 'history/lib/LocationUtils';
+import {createLocation} from 'history/LocationUtils';
 
 import {
   RouterContext,

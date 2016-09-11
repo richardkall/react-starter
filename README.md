@@ -14,7 +14,6 @@
 - [x] [CSS modules](https://github.com/css-modules/css-modules)
 - [x] [ESLint](http://eslint.org/)
 - [x] [Express](http://expressjs.com/)
-- [x] [Mocha](https://mochajs.org/)
 - [x] [PostCSS](https://github.com/postcss/postcss)
 - [x] [React](http://facebook.github.io/react/)
 - [x] [React Helmet](https://github.com/nfl/react-helmet)
