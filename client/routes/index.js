@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {
   IndexRoute,
   Route,
@@ -7,9 +5,11 @@ import {
   browserHistory
 } from 'react-router';
 
-import App from './components/App';
-import Home from './components/Home';
-import NotFound from './components/NotFound';
+import React from 'react';
+
+import App from './App';
+import Home from './Home';
+import NotFound from './NotFound';
 
 export default (
   <Router history={browserHistory}>

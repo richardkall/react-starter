@@ -14,7 +14,7 @@ import {
 } from 'react-dom/server';
 
 import Html from '../../client/components/Html';
-import NotFound from '../../client/components/NotFound';
+import NotFound from '../../client/routes/NotFound';
 import configureStore from '../../client/configureStore';
 import routes from '../../client/routes';
 
