@@ -1,10 +1,12 @@
 import Helmet from 'react-helmet';
 import React from 'react';
 
+import PageHeading from '../../components/PageHeading';
+
 const Home = () => (
   <div>
     <Helmet title='Home' />
-    <h1>Welcome</h1>
+    <PageHeading text='Welcome' />
   </div>
 );
 
