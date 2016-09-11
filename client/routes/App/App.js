@@ -6,7 +6,7 @@ import config from '../../../config';
 
 import style from './App.css';
 
-export const App = ({children}) => (
+const App = ({children}) => (
   <div className={style.root}>
     <Helmet titleTemplate={`%s - ${config.meta.title}`} />
     <Link to='/'>Home</Link>
