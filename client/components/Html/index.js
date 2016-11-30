@@ -1,1 +1,1 @@
-export {default} from './Html';
+export { default } from './Html';

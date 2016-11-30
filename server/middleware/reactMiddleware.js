@@ -1,9 +1,9 @@
 import Helmet from 'react-helmet';
 import React from 'react';
-import {Provider} from 'react-redux';
-import {RouterContext, match} from 'react-router';
-import {createLocation} from 'history/LocationUtils';
-import {renderToStaticMarkup, renderToString} from 'react-dom/server';
+import { Provider } from 'react-redux';
+import { RouterContext, match } from 'react-router';
+import { createLocation } from 'history/LocationUtils';
+import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 
 import Html from '../../client/components/Html';
 import NotFound from '../../client/routes/NotFound';
@@ -11,13 +11,13 @@ import configureStore from '../../client/configureStore';
 import routes from '../../client/routes';
 
 const renderApp = (renderProps) => {
-  const assets = require('../../build/assets.json'); // eslint-disable-line global-require, import/newline-after-import
+  const assets = require('../../build/assets.json'); // eslint-disable-line global-require, import/no-unresolved
   const store = configureStore();
   const initialState = store.getState();
   const content = renderToString(
     <Provider store={store}>
       <RouterContext {...renderProps} />
-    </Provider>
+    </Provider>,
   );
   const head = Helmet.rewind();
 
@@ -27,14 +27,14 @@ const renderApp = (renderProps) => {
       content={content}
       head={head}
       initialState={initialState}
-    />
+    />,
   );
 };
 
-export default ({url}, res) => {
+export default ({ url }, res) => {
   const location = createLocation(url);
 
-  match({routes, location}, (error, redirectLocation, renderProps) => {
+  match({ routes, location }, (error, redirectLocation, renderProps) => {
     if (error) {
       return res.status(500).send(error.message);
     } else if (redirectLocation) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {AppContainer} from 'react-hot-loader';
+import { AppContainer } from 'react-hot-loader';
 
 import Root from './components/Root';
 import configureStore from './configureStore';
@@ -12,7 +12,7 @@ ReactDOM.render(
   <AppContainer>
     <Root store={store} />
   </AppContainer>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 if (module.hot) {
@@ -23,7 +23,7 @@ if (module.hot) {
       <AppContainer>
         <NextRoot store={store} />
       </AppContainer>,
-      document.getElementById('root')
+      document.getElementById('root'),
     );
   });
 }

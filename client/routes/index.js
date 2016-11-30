@@ -2,7 +2,7 @@ import {
   IndexRoute,
   Route,
   Router,
-  browserHistory
+  browserHistory,
 } from 'react-router';
 
 import React from 'react';
@@ -13,9 +13,9 @@ import NotFound from './NotFound';
 
 export default (
   <Router history={browserHistory}>
-    <Route component={App} path='/'>
+    <Route component={App} path="/">
       <IndexRoute component={Home} />
-      <Route component={NotFound} path='*' />
+      <Route component={NotFound} path="*" />
     </Route>
   </Router>
 );

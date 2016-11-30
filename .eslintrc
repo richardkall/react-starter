@@ -1,6 +1,10 @@
 {
-  "extends": "richardkall/react",
+  "extends": "airbnb",
+  "env": {
+    "browser": true
+  },
   "rules": {
-    "sort-keys": 0
+    "no-underscore-dangle": ["error", {"allow": ["__INITIAL_STATE__"]}],
+    "react/jsx-filename-extension": "off",
   }
 }

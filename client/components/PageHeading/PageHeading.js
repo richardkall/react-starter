@@ -1,11 +1,11 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
-const PageHeading = ({text}) => (
+const PageHeading = ({ text }) => (
   <h1>{text}</h1>
 );
 
 PageHeading.propTypes = {
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
 };
 
 export default PageHeading;
