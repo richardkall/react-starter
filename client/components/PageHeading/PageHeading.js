@@ -1,7 +1,14 @@
 import React, { PropTypes } from 'react';
 
+import styled from 'styled-components';
+
+const H1 = styled.h1`
+  font-family: sans-serif;
+  color: #222;
+`;
+
 const PageHeading = ({ text }) => (
-  <h1>{text}</h1>
+  <H1>{text}</H1>
 );
 
 PageHeading.propTypes = {

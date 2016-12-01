@@ -1,9 +1,5 @@
 import path from 'path';
-
 import AssetsPlugin from 'assets-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import autoprefixer from 'autoprefixer';
-import nested from 'postcss-nested';
 import webpack from 'webpack';
 
 import config from './config';
@@ -26,11 +22,6 @@ export default {
   },
   module: {
     loaders: [
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]-[hash:base64:4]!postcss'),
-      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -55,7 +46,6 @@ export default {
       filename: 'assets.json',
       path: 'build',
     }),
-    new ExtractTextPlugin('[name].[contenthash:7].css'),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
@@ -73,10 +63,6 @@ export default {
     ] : [
       new webpack.HotModuleReplacementPlugin(),
     ],
-  ],
-  postcss: [
-    nested(),
-    autoprefixer(),
   ],
   bail: isProduction,
   cache: !isProduction,

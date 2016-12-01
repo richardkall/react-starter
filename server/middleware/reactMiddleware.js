@@ -1,5 +1,6 @@
 import Helmet from 'react-helmet';
 import React from 'react';
+import styleSheet from 'styled-components/lib/models/StyleSheet';
 import { Provider } from 'react-redux';
 import { RouterContext, match } from 'react-router';
 import { createLocation } from 'history/LocationUtils';
@@ -21,12 +22,15 @@ const renderApp = (renderProps) => {
   );
   const head = Helmet.rewind();
 
+  const styles = styleSheet.rules().map(rule => rule.cssText).join('\n');
+
   return renderToStaticMarkup(
     <Html
       assets={assets}
       content={content}
       head={head}
       initialState={initialState}
+      styles={styles}
     />,
   );
 };
