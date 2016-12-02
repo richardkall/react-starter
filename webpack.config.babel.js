@@ -72,6 +72,7 @@ export default {
         },
       }),
     ] : [
+      new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin(),
     ],
   ],
