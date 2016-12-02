@@ -7,9 +7,14 @@ import config from '../../webpack.config.babel';
 const compiler = webpack(config);
 
 export const webpackMiddleware = devMiddleware(compiler, {
-  historyApiFallback: true,
-  hot: true,
-  quiet: true,
+  stats: {
+    colors: true,
+    children: false,
+    version: false,
+    hash: false,
+    timings: false,
+    chunks: false,
+    chunkModules: false,
+  },
 });
-
 export const webpackHotMiddleware = hotMiddleware(compiler);

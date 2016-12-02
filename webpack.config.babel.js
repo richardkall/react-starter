@@ -7,14 +7,23 @@ import config from './config';
 const isProduction = config.env === 'production';
 
 export default {
-  entry: isProduction ? [
-    './index.js',
-  ] : [
-    'webpack-hot-middleware/client',
-    'react-hot-loader/patch',
-    './index.js',
-  ],
-  context: path.resolve(__dirname, './client'),
+  entry: {
+    main: isProduction ? [
+      './client',
+    ] : [
+      'webpack-hot-middleware/client',
+      'react-hot-loader/patch',
+      './client',
+    ],
+    vendor: [
+      'react',
+      'react-dom',
+      'react-helmet',
+      'react-redux',
+      'react-router',
+      'styled-components',
+    ],
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: `[name]${isProduction ? '.[chunkhash:8]' : ''}.js`,
@@ -54,6 +63,7 @@ export default {
       filename: 'assets.json',
       path: 'build',
     }),
+    new webpack.optimize.CommonsChunkPlugin('vendor'),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),

@@ -15,6 +15,7 @@ const Html = ({ assets, content, head, initialState, styles }) => (
     <body>
       <div dangerouslySetInnerHTML={{ __html: content }} id="root" />
       <script dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}` }} />
+      <script src={assets.vendor.js} />
       <script src={assets.main.js} />
     </body>
   </html>
@@ -23,6 +24,9 @@ const Html = ({ assets, content, head, initialState, styles }) => (
 Html.propTypes = {
   assets: PropTypes.shape({
     main: PropTypes.shape({
+      js: PropTypes.string.isRequired,
+    }).isRequired,
+    vendor: PropTypes.shape({
       js: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
