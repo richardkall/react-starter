@@ -14,7 +14,7 @@
 - [x] [Redux](http://redux.js.org/)
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [x] [Styled Components](https://styled-components.com/)
-- [x] [Webpack](https://webpack.github.io)
+- [x] [Webpack 2](https://webpack.github.io)
 
 ## Setup
 

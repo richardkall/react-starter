@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "webpack -c --progress",
+    "build": "webpack --progress",
     "lint": "eslint --ignore-path .gitignore .",
     "prebuild": "rimraf build/*",
     "prestart": "npm run build",
@@ -44,7 +44,7 @@
     "redux": "3.6.0",
     "styled-components": "1.1.2",
     "url-loader": "0.5.7",
-    "webpack": "1.13.3",
+    "webpack": "2.1.0-beta.27",
     "webpack-dev-middleware": "1.8.4",
     "webpack-hot-middleware": "2.13.2"
   }

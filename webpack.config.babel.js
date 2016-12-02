@@ -16,28 +16,36 @@ export default {
   ],
   context: path.resolve(__dirname, './client'),
   output: {
-    filename: '[name].[hash:7].js',
-    path: path.resolve(__dirname, './build'),
+    path: path.resolve(__dirname, 'build'),
+    filename: `[name]${isProduction ? '.[chunkhash:8]' : ''}.js`,
     publicPath: '/',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          cacheDirectory: !isProduction,
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: !isProduction,
+            },
+          },
+        ],
       },
       {
         test: /\.(eot|gif|jpe?g|otf|png|svg|webp|woff|woff2?|ttf)$/,
         exclude: /node_modules/,
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: '[name].[hash:7].[ext]',
-        },
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: '[name].[hash:8].[ext]',
+            },
+          },
+        ],
       },
     ],
   },
@@ -47,11 +55,14 @@ export default {
       path: 'build',
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: isProduction,
     }),
     ...isProduction ? [
-      new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false,
@@ -64,6 +75,11 @@ export default {
       new webpack.HotModuleReplacementPlugin(),
     ],
   ],
+  resolve: {
+    alias: {
+      'styled-components$': 'styled-components/lib/index.js',
+    },
+  },
   bail: isProduction,
   cache: !isProduction,
   stats: {
