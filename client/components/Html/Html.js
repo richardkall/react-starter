@@ -1,13 +1,12 @@
 /* eslint-disable react/no-danger */
 import React, { PropTypes } from 'react';
 
-const Html = ({ assets, content, head, initialState, styles }) => (
+const Html = ({ assets, content, initialState, styles }) => (
   <html lang="en">
     <head>
       <meta charSet="utf-8" />
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      {head.meta.toComponent()}
-      {head.title.toComponent()}
+      <title>React Starter</title>
       <style>
         {styles}
       </style>
@@ -31,7 +30,6 @@ Html.propTypes = {
     }).isRequired,
   }).isRequired,
   content: PropTypes.string.isRequired,
-  head: PropTypes.shape().isRequired,
   initialState: PropTypes.shape(),
   styles: PropTypes.string.isRequired,
 };

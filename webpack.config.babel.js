@@ -18,7 +18,6 @@ export default {
     vendor: [
       'react',
       'react-dom',
-      'react-helmet',
       'react-redux',
       'react-router',
       'styled-components',

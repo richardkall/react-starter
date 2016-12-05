@@ -1,4 +1,3 @@
-import Helmet from 'react-helmet';
 import React from 'react';
 import styleSheet from 'styled-components/lib/models/StyleSheet';
 import { Provider } from 'react-redux';
@@ -20,7 +19,6 @@ const renderApp = (renderProps) => {
       <RouterContext {...renderProps} />
     </Provider>,
   );
-  const head = Helmet.rewind();
 
   const styles = styleSheet.rules().map(rule => rule.cssText).join('\n');
 
@@ -28,7 +26,6 @@ const renderApp = (renderProps) => {
     <Html
       assets={assets}
       content={content}
-      head={head}
       initialState={initialState}
       styles={styles}
     />,
