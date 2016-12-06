@@ -1,10 +1,9 @@
 import path from 'path';
+
 import AssetsPlugin from 'assets-webpack-plugin';
 import webpack from 'webpack';
 
-import config from './config';
-
-const isProduction = config.env === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 
 export default {
   entry: {
@@ -12,20 +11,21 @@ export default {
       './client',
     ] : [
       'webpack-hot-middleware/client',
-      'react-hot-loader/patch',
       './client',
     ],
     vendor: [
       'react',
       'react-dom',
-      'react-redux',
-      'react-router',
+      'react-router/BrowserRouter',
+      'react-router/Link',
+      'react-router/Match',
+      'react-router/Miss',
       'styled-components',
     ],
   },
   output: {
+    filename: `static/js/[name]${isProduction ? '.[chunkhash:8]' : ''}.js`,
     path: path.resolve(__dirname, 'build'),
-    filename: `[name]${isProduction ? '.[chunkhash:8]' : ''}.js`,
     publicPath: '/',
   },
   module: {
@@ -37,6 +37,14 @@ export default {
           {
             loader: 'babel-loader',
             options: {
+              babelrc: false,
+              presets: [
+                ['es2015', { modules: false }],
+                'react',
+              ],
+              plugins: isProduction ? [
+                'transform-react-remove-prop-types',
+              ] : [],
               cacheDirectory: !isProduction,
             },
           },
@@ -47,10 +55,10 @@ export default {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'url',
             options: {
               limit: 10000,
-              name: '[name].[hash:8].[ext]',
+              name: 'static/media/[name].[hash:8].[ext]',
             },
           },
         ],
@@ -60,17 +68,14 @@ export default {
   plugins: [
     new AssetsPlugin({
       filename: 'assets.json',
-      path: 'build',
+      path: 'build/static',
     }),
-    new webpack.optimize.CommonsChunkPlugin('vendor'),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: isProduction,
-    }),
+    new webpack.optimize.CommonsChunkPlugin('vendor'),
     ...isProduction ? [
       new webpack.optimize.UglifyJsPlugin({
         compress: {
@@ -81,17 +86,11 @@ export default {
         },
       }),
     ] : [
-      new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin(),
+      new webpack.NamedModulesPlugin(),
     ],
   ],
-  resolve: {
-    alias: {
-      'styled-components$': 'styled-components/lib/index.js',
-    },
-  },
   bail: isProduction,
-  cache: !isProduction,
   stats: {
     children: false,
   },

@@ -4,23 +4,24 @@ import compression from 'compression';
 import express from 'express';
 import morgan from 'morgan';
 
-import config from '../config';
-import reactMiddleware from './middleware/reactMiddleware';
-import { webpackMiddleware, webpackHotMiddleware } from './middleware/webpackMiddleware';
+import reactMiddleware from './middleware/react';
+import { webpackDevMiddleware, webpackHotMiddleware } from './middleware/webpack';
 
-const isProduction = config.env === 'production';
-const server = express();
+const isProduction = process.env.NODE_ENV === 'production';
+const port = process.env.PORT || 3000;
+const app = express();
 
-if (!isProduction) {
-  server.use(webpackMiddleware);
-  server.use(webpackHotMiddleware);
+if (isProduction) {
+  app.use(compression());
+} else {
+  app.use(webpackDevMiddleware);
+  app.use(webpackHotMiddleware);
 }
 
-server.use(compression());
-server.use(express.static(path.resolve(__dirname, '../build')));
-server.use(morgan(isProduction ? 'combined' : 'dev'));
-server.use(reactMiddleware);
+app.use(morgan(isProduction ? 'combined' : 'dev'));
+app.use(express.static(path.resolve(__dirname, '../build')));
+app.use(reactMiddleware);
 
-server.listen(config.server.port, () =>
-  console.info(`Server running in ${server.get('env')} on port ${config.server.port}`), // eslint-disable-line no-console
-);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`); // eslint-disable-line no-console
+});

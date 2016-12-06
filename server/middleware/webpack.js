@@ -6,15 +6,17 @@ import config from '../../webpack.config.babel';
 
 const compiler = webpack(config);
 
-export const webpackMiddleware = devMiddleware(compiler, {
+export const webpackDevMiddleware = devMiddleware(compiler, {
+  publicPath: config.output.publicPath,
   stats: {
-    colors: true,
     children: false,
-    version: false,
+    chunkModules: false,
+    chunks: false,
+    colors: true,
     hash: false,
     timings: false,
-    chunks: false,
-    chunkModules: false,
+    version: false,
   },
 });
+
 export const webpackHotMiddleware = hotMiddleware(compiler);

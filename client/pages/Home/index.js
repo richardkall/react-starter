@@ -1,10 +1,10 @@
 import React from 'react';
 
-import PageHeading from '../../components/PageHeading';
+import H1 from '../../components/H1';
 
 const Home = () => (
   <div>
-    <PageHeading text="Welcome" />
+    <H1>Home</H1>
   </div>
 );
 

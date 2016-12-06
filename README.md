@@ -8,12 +8,13 @@
 - [x] [ESLint](http://eslint.org/)
 - [x] [Express](http://expressjs.com/)
 - [x] [React](http://facebook.github.io/react/)
-- [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader)
-- [x] [React Router](https://github.com/reactjs/react-router)
-- [x] [Redux](http://redux.js.org/)
-- [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
+- [x] [React Router v4](https://github.com/reactjs/react-router)
 - [x] [Styled Components](https://styled-components.com/)
-- [x] [Webpack 2](https://webpack.github.io)
+- [x] [Webpack v2](https://webpack.github.io)
+
+## Extras
+
+- [x] [feature/redux](https://github.com/richardkall/react-starter/tree/feature/redux) – Redux integration, based on `master` branch.
 
 ## Setup
 

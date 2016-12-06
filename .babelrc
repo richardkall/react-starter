@@ -2,16 +2,5 @@
   "presets": [
     "es2015",
     "react"
-  ],
-  "plugins": ["react-hot-loader/babel"],
-  "env": {
-     "production": {
-       "plugins": [
-         "transform-react-constant-elements",
-         "transform-react-inline-elements",
-         "transform-react-pure-class-to-function",
-         "transform-react-remove-prop-types"
-       ]
-     }
-   }
+  ]
 }
