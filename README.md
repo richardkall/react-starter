@@ -14,6 +14,7 @@
 
 ## Extras
 
+- [x] [feature/apollo](https://github.com/richardkall/react-starter/tree/feature/apollo) – Apollo integration, based on `redux` branch.
 - [x] [feature/redux](https://github.com/richardkall/react-starter/tree/feature/redux) – Redux integration, based on `master` branch.
 
 ## Setup
