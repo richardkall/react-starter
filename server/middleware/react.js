@@ -12,7 +12,7 @@ const renderApp = (location, context) => renderToString(
   </ServerRouter>,
 );
 
-export default function reactMiddlware(req, res) {
+export default function reactMiddleware(req, res) {
   const assets = require('../../build/static/assets.json'); // eslint-disable-line global-require, import/no-unresolved
   const context = createServerRenderContext();
   let markup = renderApp(req.url, context);
