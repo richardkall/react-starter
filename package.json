@@ -8,7 +8,8 @@
     "prebuild": "rimraf build/*",
     "prestart": "npm run build",
     "start": "node server",
-    "start-dev": "nodemon server -w server"
+    "start-dev": "nodemon server -w server",
+    "stats": "webpack --profile --json > stats.json"
   },
   "devDependencies": {
     "eslint": "3.13.1",
