@@ -93,5 +93,6 @@ export default {
   bail: isProduction,
   stats: {
     children: false,
+    maxModules: 0,
   },
 };
