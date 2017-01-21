@@ -14,8 +14,8 @@
 
 ## Extras
 
-- [x] [feature/apollo](https://github.com/richardkall/react-starter/tree/feature/apollo) – Apollo Client integration, based on `feature/redux` branch.
 - [x] [feature/redux](https://github.com/richardkall/react-starter/tree/feature/redux) – Redux integration, based on `master` branch.
+- [x] [feature/apollo](https://github.com/richardkall/react-starter/tree/feature/apollo) – Apollo Client integration, based on `feature/redux` branch.
 
 ## Setup
 
@@ -34,7 +34,7 @@ $ npm run start-dev
 Start production server:
 
 ```bash
-$ NODE_ENV=production npm start
+$ npm start
 ```
 
 ## License
