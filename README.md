@@ -28,7 +28,7 @@ $ npm install
 Start development server:
 
 ```bash
-$ npm run start-dev
+$ npm run dev
 ```
 
 Start production server:

@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "build": "webpack --progress",
+    "dev": "nodemon server -w server",
     "lint": "eslint --ignore-path .gitignore .",
     "prebuild": "rimraf build/*",
     "prestart": "npm run build",
     "start": "node server",
-    "start-dev": "nodemon server -w server",
     "stats": "webpack --profile --json > stats.json"
   },
   "devDependencies": {
