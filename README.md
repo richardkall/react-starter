@@ -12,10 +12,9 @@
 - [x] [Styled Components](https://styled-components.com/)
 - [x] [Webpack v2](https://webpack.github.io)
 
-## Extras
-
-- [x] [feature/redux](https://github.com/richardkall/react-starter/tree/feature/redux) – Redux integration, based on `master` branch.
-- [x] [feature/apollo](https://github.com/richardkall/react-starter/tree/feature/apollo) – Apollo Client integration, based on `feature/redux` branch.
+### Extras
+- [x] [Apollo Client](http://dev.apollodata.com/) (separate branch: [feature/apollo](https://github.com/richardkall/react-starter/tree/feature/apollo))
+- [x] [Redux](http://redux.js.org/) (separate branch: [feature/redux](https://github.com/richardkall/react-starter/tree/feature/redux))
 
 ## Setup
 

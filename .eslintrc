@@ -4,7 +4,6 @@
     "browser": true
   },
   "rules": {
-    "no-underscore-dangle": ["error", {"allow": ["__PRELOADED_STATE__"]}],
     "react/jsx-filename-extension": "off",
   }
 }
