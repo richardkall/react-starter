@@ -4,6 +4,12 @@
     "browser": true
   },
   "rules": {
+    "no-underscore-dangle": ["error", {
+      "allow": [
+        "__PRELOADED_STATE__",
+        "__REDUX_DEVTOOLS_EXTENSION__"
+      ]
+    }],
     "react/jsx-filename-extension": "off",
   }
 }
