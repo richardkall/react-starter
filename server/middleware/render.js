@@ -20,7 +20,7 @@ export default function render(req, res) {
     return res.redirect(301, redirect.pathname);
   }
 
-  const css = styleSheet.rules().map(rule => rule.cssText).join('\n');
+  const css = styleSheet.getCSS();
 
   return res
     .status(missed ? 404 : 200)
