@@ -29,6 +29,11 @@ export default {
           },
         ],
       },
+      {
+        test: /\.gql$/,
+        exclude: /node_modules/,
+        use: 'graphql-tag/loader',
+      },
     ],
   },
   plugins: [
