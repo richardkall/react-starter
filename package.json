@@ -2,6 +2,9 @@
   "name": "react-starter",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=4"
+  },
   "scripts": {
     "analyze": "cross-env NODE_ENV=production webpack --config webpack/webpack.client.babel.js --profile --json > stats.json",
     "build": "npm run build:client && npm run build:server",
