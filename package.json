@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "scripts": {
     "analyze": "webpack --config webpack/webpack.client.babel.js --profile --json > stats.json",
