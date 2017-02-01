@@ -37,7 +37,7 @@
     "react-dom": "15.4.2",
     "react-router": "4.0.0-alpha.6",
     "rimraf": "2.5.4",
-    "styled-components": "2.0.0-0",
+    "styled-components": "2.0.0-1",
     "url-loader": "0.5.7",
     "webpack": "2.2.0",
     "webpack-dev-middleware": "1.9.0",
