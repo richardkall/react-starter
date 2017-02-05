@@ -1,29 +1,28 @@
 /* global VENDOR_BUNDLE: true, CLIENT_BUNDLE: true */
 import React from 'react';
-import { ServerRouter, createServerRenderContext } from 'react-router';
+import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import styleSheet from 'styled-components/lib/models/StyleSheet';
 
 import App from '../../client/components/App';
 
 export default function render(req, res) {
-  const context = createServerRenderContext();
+  const context = {};
+
   const html = renderToString(
-    <ServerRouter location={req.url} context={context}>
+    <StaticRouter location={req.url} context={context}>
       <App />
-    </ServerRouter>,
+    </StaticRouter>,
   );
 
-  const { missed, redirect } = context.getResult();
-
-  if (redirect) {
-    return res.redirect(301, redirect.pathname);
+  if (context.url) {
+    return res.redirect(302, context.url);
   }
 
   const css = styleSheet.getCSS();
 
   return res
-    .status(missed ? 404 : 200)
+    .status(context.status || 200)
     .send(`
       <!doctype html>
       <html lang="en">

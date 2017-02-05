@@ -1,6 +1,5 @@
 import React from 'react';
-import Match from 'react-router/Match';
-import Miss from 'react-router/Miss';
+import { Route, Switch } from 'react-router-dom';
 
 import Home from '../../pages/Home';
 import About from '../../pages/About';
@@ -12,9 +11,11 @@ import './global-styles';
 const App = () => (
   <div>
     <Navigation />
-    <Match exactly pattern="/" component={Home} />
-    <Match pattern="/about" component={About} />
-    <Miss component={NoMatch} />
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/about" component={About} />
+      <Route component={NoMatch} />
+    </Switch>
   </div>
 );
 
