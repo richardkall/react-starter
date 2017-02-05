@@ -40,7 +40,7 @@
     "styled-components": "2.0.0-1",
     "url-loader": "0.5.7",
     "webpack": "2.2.1",
-    "webpack-dev-middleware": "1.9.0",
+    "webpack-dev-middleware": "1.10.0",
     "webpack-hot-middleware": "2.16.1",
     "webpack-md5-hash": "0.0.5",
     "webpack-node-externals": "1.5.4"
