@@ -23,7 +23,7 @@
     "eslint-plugin-jsx-a11y": "3.0.2"
   },
   "dependencies": {
-    "apollo-client": "0.8.1",
+    "apollo-client": "0.8.2",
     "assets-webpack-plugin": "3.5.1",
     "babel-loader": "6.2.10",
     "babel-plugin-transform-react-remove-prop-types": "0.3.0",
@@ -34,11 +34,11 @@
     "express": "4.14.1",
     "file-loader": "0.10.0",
     "graphql-anywhere": "2.1.0",
-    "graphql-tag": "1.2.3",
+    "graphql-tag": "1.2.4",
     "isomorphic-fetch": "2.2.1",
     "morgan": "1.8.0",
     "react": "15.4.2",
-    "react-apollo": "0.9.0",
+    "react-apollo": "0.10.0",
     "react-dom": "15.4.2",
     "react-redux": "5.0.2",
     "react-router-dom": "4.0.0-beta.4",
