@@ -1,0 +1,8 @@
+#import "../Navigation/NavigationUser.gql"
+
+query User($id: ID!) {
+  user(id: $id) {
+    id
+    ...NavigationUser
+  }
+}
