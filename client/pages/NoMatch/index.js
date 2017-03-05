@@ -4,8 +4,8 @@ import H1 from '../../components/H1';
 
 class NoMatch extends Component {
   componentWillMount() {
-    if (this.context.router.staticContext) {
-      this.context.router.staticContext.status = 404;
+    if (this.props.history.staticContext) {
+      this.props.history.staticContext.status = 404;
     }
   }
 
@@ -18,8 +18,8 @@ class NoMatch extends Component {
   }
 }
 
-NoMatch.contextTypes = {
-  router: PropTypes.shape({
+NoMatch.propTypes = {
+  history: PropTypes.shape({
     staticContext: PropTypes.shape(),
   }).isRequired,
 };
