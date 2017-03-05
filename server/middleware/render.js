@@ -6,7 +6,7 @@ import styleSheet from 'styled-components/lib/models/StyleSheet';
 
 import App from '../../client/components/App';
 
-export default function render(req, res) {
+function render(req, res) {
   const context = {};
 
   const html = renderToString(
@@ -27,7 +27,7 @@ export default function render(req, res) {
       <!doctype html>
       <html lang="en">
         <head>
-          <meta charSet="utf-8" />
+          <meta charset="utf-8" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
           <title>React Starter</title>
           <style>${css}</style>
@@ -40,3 +40,5 @@ export default function render(req, res) {
       </html>
     `);
 }
+
+export default render;

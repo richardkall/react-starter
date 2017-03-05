@@ -8,15 +8,17 @@ import Navigation from '../Navigation';
 
 import './global-styles';
 
-const App = () => (
-  <div>
-    <Navigation />
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/about" component={About} />
-      <Route component={NoMatch} />
-    </Switch>
-  </div>
-);
+function App() {
+  return (
+    <div>
+      <Navigation />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+        <Route component={NoMatch} />
+      </Switch>
+    </div>
+  );
+}
 
 export default App;
