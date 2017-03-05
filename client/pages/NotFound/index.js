@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 import H1 from '../../components/H1';
 
-class NoMatch extends Component {
+class NotFound extends Component {
   componentWillMount() {
     if (this.props.history.staticContext) {
       this.props.history.staticContext.status = 404;
@@ -18,10 +18,10 @@ class NoMatch extends Component {
   }
 }
 
-NoMatch.propTypes = {
+NotFound.propTypes = {
   history: PropTypes.shape({
     staticContext: PropTypes.shape(),
   }).isRequired,
 };
 
-export default NoMatch;
+export default NotFound;
