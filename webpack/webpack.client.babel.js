@@ -23,8 +23,7 @@ export default {
     rules: [
       ...common.module.rules,
       {
-        test: /\.(eot|gif|jpe?g|otf|png|svg|webp|woff|woff2?|ttf)$/,
-        exclude: /node_modules/,
+        exclude: /\.(css|js|json)$/,
         use: [
           {
             loader: 'url-loader',
