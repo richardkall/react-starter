@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Home from '../../pages/Home';
-import About from '../../pages/About';
-import NotFound from '../../pages/NotFound';
+import Home from '../../routes/Home';
+import About from '../../routes/About';
+import NotFound from '../../routes/NotFound';
 import Navigation from '../Navigation';
 
 import './global-styles';
