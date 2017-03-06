@@ -23,7 +23,7 @@ export default {
     rules: [
       ...common.module.rules,
       {
-        exclude: /\.(css|js|json)$/,
+        exclude: /\.(js|json)$/,
         use: [
           {
             loader: 'url-loader',
