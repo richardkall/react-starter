@@ -4,8 +4,8 @@ import H1 from '../../components/H1';
 
 class NotFound extends Component {
   componentWillMount() {
-    if (this.props.history.staticContext) {
-      this.props.history.staticContext.status = 404;
+    if (this.props.staticContext) {
+      this.props.staticContext.status = 404;
     }
   }
 
@@ -19,9 +19,7 @@ class NotFound extends Component {
 }
 
 NotFound.propTypes = {
-  history: PropTypes.shape({
-    staticContext: PropTypes.shape(),
-  }).isRequired,
+  staticContext: PropTypes.shape(), // eslint-disable-line react/require-default-props
 };
 
 export default NotFound;
