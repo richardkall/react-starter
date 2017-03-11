@@ -42,6 +42,9 @@ export default {
     new webpack.DefinePlugin({
       CLIENT_BUNDLE: JSON.stringify(isProduction ? require('../build/assets.json').client.js : '/js/client.js'),
       VENDOR_BUNDLE: JSON.stringify(isProduction ? require('../build/assets.json').vendor.js : '/js/vendor.js'),
+      'process.env': {
+        PORT: JSON.stringify(process.env.PORT),
+      },
     }),
   ],
   externals: [nodeExternals()],
