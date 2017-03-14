@@ -29,8 +29,11 @@ export default {
             loader: 'babel-loader',
             options: {
               cacheDirectory: !isProduction,
-              plugins: isProduction && [
-                'transform-react-remove-prop-types',
+              plugins: [
+                'transform-object-rest-spread',
+                ...isProduction && [
+                  'transform-react-remove-prop-types',
+                ],
               ],
               presets: [
                 [
