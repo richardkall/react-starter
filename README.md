@@ -33,7 +33,7 @@ $ npm run dev
 Start production server:
 
 ```bash
-$ npm run build && npm start
+$ NODE_ENV=production npm run build && npm start
 ```
 
 ## License
