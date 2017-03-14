@@ -21,7 +21,32 @@ export default {
   },
   module: {
     rules: [
-      ...common.module.rules,
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: !isProduction,
+              plugins: isProduction && [
+                'transform-react-remove-prop-types',
+              ],
+              presets: [
+                [
+                  'env', {
+                    targets: {
+                      browsers: '> 1%, Last 2 versions',
+                    },
+                    modules: false,
+                  },
+                ],
+                'react',
+              ],
+            },
+          },
+        ],
+      },
       {
         exclude: /\.(js|json)$/,
         use: [

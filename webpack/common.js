@@ -8,29 +8,6 @@ export default {
     path: path.resolve(__dirname, '../build'),
     publicPath: '/',
   },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: !isProduction,
-              plugins: isProduction && [
-                'transform-react-remove-prop-types',
-              ],
-              presets: [
-                ['es2015', { modules: false }],
-                'react',
-              ],
-            },
-          },
-        ],
-      },
-    ],
-  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
