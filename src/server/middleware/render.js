@@ -4,7 +4,7 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import styleSheet from 'styled-components/lib/models/StyleSheet';
 
-import App from '../../client/components/App';
+import App from '../../app/components/App';
 
 function render(req, res) {
   const context = {};

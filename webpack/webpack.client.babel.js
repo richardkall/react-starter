@@ -11,7 +11,7 @@ export default {
   entry: {
     client: [
       ...!isProduction && ['webpack-hot-middleware/client'],
-      './client',
+      './src/client',
     ],
   },
   output: {

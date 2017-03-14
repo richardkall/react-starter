@@ -8,7 +8,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 export default {
   name: 'server',
-  entry: './server',
+  entry: './src/server',
   target: 'node',
   node: {
     __dirname: false,
