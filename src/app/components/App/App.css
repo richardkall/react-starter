@@ -1,0 +1,18 @@
+:global html,
+:global body {
+  margin: 0;
+  padding: 0;
+}
+
+:global html {
+  box-sizing: border-box;
+}
+
+:global *:after,
+:global *:before {
+  box-sizing: inherit;
+}
+
+.root {
+  font-family: system-ui;
+}

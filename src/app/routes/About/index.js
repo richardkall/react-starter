@@ -1,13 +1,3 @@
-import React from 'react';
-
-import H1 from '../../components/H1';
-
-function About() {
-  return (
-    <div>
-      <H1>About</H1>
-    </div>
-  );
-}
+import About from './About';
 
 export default About;

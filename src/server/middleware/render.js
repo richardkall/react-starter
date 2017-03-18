@@ -1,8 +1,7 @@
-/* global VENDOR_BUNDLE: true, CLIENT_BUNDLE: true */
+/* global CSS_BUNDLE: true, VENDOR_BUNDLE: true, CLIENT_BUNDLE: true */
 import React from 'react';
 import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
-import styleSheet from 'styled-components/lib/models/StyleSheet';
 
 import App from '../../app/components/App';
 
@@ -19,8 +18,6 @@ function render(req, res) {
     return res.redirect(302, context.url);
   }
 
-  const css = styleSheet.getCSS();
-
   return res
     .status(context.status || 200)
     .send(`
@@ -30,7 +27,7 @@ function render(req, res) {
           <meta charset="utf-8" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
           <title>React Starter</title>
-          <style>${css}</style>
+          <link href="${CSS_BUNDLE}" rel="stylesheet">
         </head>
         <body>
           <div id="root">${html}</div>

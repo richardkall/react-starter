@@ -2,7 +2,11 @@
 import nodeExternals from 'webpack-node-externals';
 import webpack from 'webpack';
 
-import common from './common';
+import common, {
+  babelLoaderOptions,
+  cssLoaderOptions,
+  urlLoaderOptions,
+} from './common';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -14,13 +18,19 @@ export default {
     __dirname: false,
   },
   output: {
+    ...common.output,
     filename: 'server.js',
-    path: common.output.path,
-    publicPath: common.output.publicPath,
     libraryTarget: 'commonjs2',
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: {
+          loader: 'css-loader/locals',
+          options: cssLoaderOptions,
+        },
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -28,13 +38,7 @@ export default {
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: !isProduction,
-              plugins: [
-                'transform-object-rest-spread',
-                ...isProduction && [
-                  'transform-react-remove-prop-types',
-                ],
-              ],
+              ...babelLoaderOptions,
               presets: [
                 [
                   'env', {
@@ -51,14 +55,13 @@ export default {
         ],
       },
       {
-        exclude: /\.(js|json)$/,
+        exclude: /\.(css|js|json)$/,
         use: [
           {
             loader: 'url-loader',
             options: {
+              ...urlLoaderOptions,
               emitFile: false,
-              limit: 10000,
-              name: `media/[name]${isProduction ? '.[hash:8]' : ''}.[ext]`,
             },
           },
         ],
@@ -68,6 +71,7 @@ export default {
   plugins: [
     ...common.plugins,
     new webpack.DefinePlugin({
+      CSS_BUNDLE: JSON.stringify(isProduction ? require('../build/assets.json').client.css : '/css/style.css'),
       CLIENT_BUNDLE: JSON.stringify(isProduction ? require('../build/assets.json').client.js : '/js/client.js'),
       VENDOR_BUNDLE: JSON.stringify(isProduction ? require('../build/assets.json').vendor.js : '/js/vendor.js'),
       'process.env': {

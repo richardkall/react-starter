@@ -1,8 +1,13 @@
 import AssetsPlugin from 'assets-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import WebpackMd5Hash from 'webpack-md5-hash';
 import webpack from 'webpack';
 
-import common from './common';
+import common, {
+  babelLoaderOptions,
+  cssLoaderOptions,
+  urlLoaderOptions,
+} from './common';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -15,12 +20,32 @@ export default {
     ],
   },
   output: {
+    ...common.output,
     filename: `js/[name]${isProduction ? '.[chunkhash:8]' : ''}.js`,
-    path: common.output.path,
-    publicPath: common.output.publicPath,
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
+              options: cssLoaderOptions,
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins() {
+                  return [
+                    require('postcss-cssnext'), // eslint-disable-line global-require
+                  ];
+                },
+              },
+            },
+          ],
+        }),
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -28,13 +53,7 @@ export default {
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: !isProduction,
-              plugins: [
-                'transform-object-rest-spread',
-                ...isProduction && [
-                  'transform-react-remove-prop-types',
-                ],
-              ],
+              ...babelLoaderOptions,
               presets: [
                 [
                   'env', {
@@ -51,14 +70,11 @@ export default {
         ],
       },
       {
-        exclude: /\.(js|json)$/,
+        exclude: /\.(css|js|json)$/,
         use: [
           {
             loader: 'url-loader',
-            options: {
-              limit: 10000,
-              name: `media/[name]${isProduction ? '.[hash:8]' : ''}.[ext]`,
-            },
+            options: urlLoaderOptions,
           },
         ],
       },
@@ -74,6 +90,10 @@ export default {
     ] : [
       new webpack.HotModuleReplacementPlugin(),
     ],
+    new ExtractTextPlugin({
+      allChunks: true,
+      filename: `css/style${isProduction ? '.[contenthash:8]' : ''}.css`,
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: ({ resource }) => /node_modules/.test(resource),
