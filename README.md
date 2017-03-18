@@ -5,11 +5,11 @@
 ## Features
 
 - [x] [Babel](https://babeljs.io/)
+- [x] [CSS Modules](https://github.com/css-modules/css-modules) + [cssnext](http://cssnext.io/)
 - [x] [ESLint](http://eslint.org/)
 - [x] [Express](http://expressjs.com/)
 - [x] [React](http://facebook.github.io/react/)
 - [x] [React Router v4](https://github.com/reactjs/react-router)
-- [x] [Styled Components](https://styled-components.com/)
 - [x] [Webpack v2](https://webpack.github.io)
 
 ### Extras
