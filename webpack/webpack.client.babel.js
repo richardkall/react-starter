@@ -15,7 +15,7 @@ export default {
   name: 'client',
   entry: {
     client: [
-      ...!isProduction && ['webpack-hot-middleware/client'],
+      ...(!isProduction && ['webpack-hot-middleware/client']),
       './src/client',
     ],
   },
@@ -56,7 +56,8 @@ export default {
               ...babelLoaderOptions,
               presets: [
                 [
-                  'env', {
+                  'env',
+                  {
                     targets: {
                       browsers: '> 1%, Last 2 versions',
                     },
@@ -82,14 +83,15 @@ export default {
   },
   plugins: [
     ...common.plugins,
-    ...isProduction ? [
-      new AssetsPlugin({
-        filename: 'assets.json',
-        path: common.output.path,
-      }),
-    ] : [
-      new webpack.HotModuleReplacementPlugin(),
-    ],
+    ...(isProduction
+      ? [
+        new AssetsPlugin({
+          filename: 'assets.json',
+          path: common.output.path,
+        }),
+      ]
+      : [new webpack.HotModuleReplacementPlugin()]
+    ),
     new ExtractTextPlugin({
       allChunks: true,
       filename: `css/style${isProduction ? '.[contenthash:8]' : ''}.css`,

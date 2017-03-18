@@ -7,9 +7,7 @@ export const babelLoaderOptions = {
   cacheDirectory: !isProduction,
   plugins: [
     'transform-object-rest-spread',
-    ...isProduction && [
-      'transform-react-remove-prop-types',
-    ],
+    ...(isProduction && ['transform-react-remove-prop-types']),
   ],
 };
 
@@ -36,8 +34,8 @@ export default {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
-    ...isProduction && [
+    ...(isProduction && [
       new webpack.optimize.UglifyJsPlugin({ comments: false }),
-    ],
+    ]),
   ],
 };

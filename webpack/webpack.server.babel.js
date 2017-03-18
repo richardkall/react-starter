@@ -41,7 +41,8 @@ export default {
               ...babelLoaderOptions,
               presets: [
                 [
-                  'env', {
+                  'env',
+                  {
                     targets: {
                       node: true,
                     },
@@ -71,9 +72,21 @@ export default {
   plugins: [
     ...common.plugins,
     new webpack.DefinePlugin({
-      CSS_BUNDLE: JSON.stringify(isProduction ? require('../build/assets.json').client.css : '/css/style.css'),
-      CLIENT_BUNDLE: JSON.stringify(isProduction ? require('../build/assets.json').client.js : '/js/client.js'),
-      VENDOR_BUNDLE: JSON.stringify(isProduction ? require('../build/assets.json').vendor.js : '/js/vendor.js'),
+      CSS_BUNDLE: JSON.stringify(
+        isProduction
+          ? require('../build/assets.json').client.css
+          : '/css/style.css',
+      ),
+      CLIENT_BUNDLE: JSON.stringify(
+        isProduction
+          ? require('../build/assets.json').client.js
+          : '/js/client.js',
+      ),
+      VENDOR_BUNDLE: JSON.stringify(
+        isProduction
+          ? require('../build/assets.json').vendor.js
+          : '/js/vendor.js',
+      ),
       'process.env': {
         PORT: JSON.stringify(process.env.PORT),
       },
