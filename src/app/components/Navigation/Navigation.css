@@ -7,11 +7,11 @@
 
 .item {
   display: inline;
+  padding: 14px;
 }
 
 .link {
   display: inline-block;
-  padding: 14px;
 }
 
 .activeLink {
