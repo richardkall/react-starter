@@ -17,7 +17,7 @@ function Navigation() {
             Home
           </NavLink>
         </li>
-        <li>
+        <li className={style.item}>
           <NavLink
             className={style.link}
             activeClassName={style.activeLink}
