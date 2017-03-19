@@ -9,7 +9,8 @@
         "__PRELOADED_STATE__",
         "__REDUX_DEVTOOLS_EXTENSION__"
       ]
-    }],    
+    }],
     "react/jsx-filename-extension": "off",
+    "react/require-default-props": "off",
   }
 }

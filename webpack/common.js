@@ -28,9 +28,19 @@ export default {
     path: path.resolve(__dirname, '../build'),
     publicPath: '/',
   },
+  module: {
+    rules: [
+      {
+        test: /\.gql$/,
+        exclude: /node_modules/,
+        use: 'graphql-tag/loader',
+      },
+    ],
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
+        GRAPHQL_ENDPOINT: JSON.stringify(process.env.GRAPHQL_ENDPOINT),
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),

@@ -24,6 +24,7 @@ export default {
   },
   module: {
     rules: [
+      ...common.module.rules,
       {
         test: /\.css$/,
         use: {
@@ -56,7 +57,7 @@ export default {
         ],
       },
       {
-        exclude: /\.(css|js|json)$/,
+        exclude: /\.(css|gql|js|json)$/,
         use: [
           {
             loader: 'url-loader',

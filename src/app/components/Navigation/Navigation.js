@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import style from './Navigation.css';
 
-function Navigation() {
+function Navigation({ user }) {
   return (
     <nav>
       <ul className={style.list}>
@@ -27,9 +27,16 @@ function Navigation() {
             About
           </NavLink>
         </li>
+        {user && <li className={style.item}>{user.email}</li>}
       </ul>
     </nav>
   );
 }
+
+Navigation.propTypes = {
+  user: PropTypes.shape({
+    email: PropTypes.string.isRequired,
+  }),
+};
 
 export default Navigation;

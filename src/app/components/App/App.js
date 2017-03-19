@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Home from '../../routes/Home';
@@ -8,10 +8,10 @@ import Navigation from '../Navigation';
 
 import style from './App.css';
 
-function App() {
+function App({ user }) {
   return (
     <div className={style.root}>
-      <Navigation />
+      <Navigation user={user} />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/about" component={About} />
@@ -20,5 +20,12 @@ function App() {
     </div>
   );
 }
+
+App.propTypes = {
+  user: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+  }),
+};
 
 export default App;

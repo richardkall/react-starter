@@ -25,6 +25,7 @@ export default {
   },
   module: {
     rules: [
+      ...common.module.rules,
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
@@ -71,7 +72,7 @@ export default {
         ],
       },
       {
-        exclude: /\.(css|js|json)$/,
+        exclude: /\.(css|gql|js|json)$/,
         use: [
           {
             loader: 'url-loader',

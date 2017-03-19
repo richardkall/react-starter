@@ -1,19 +1,26 @@
 import React from 'react';
+import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 
 import App from '../app/components/App';
+import configureApolloClient from '../app/store/configureApolloClient';
 import configureStore from '../app/store/configureStore';
 
-const store = configureStore(window.__PRELOADED_STATE__);
+const isProduction = process.env.NODE_ENV === 'production';
+
+const client = configureApolloClient({
+  connectToDevTools: typeof window !== 'undefined' && !isProduction,
+});
+
+const store = configureStore(client, window.__PRELOADED_STATE__);
 
 render(
-  <Provider store={store}>
+  <ApolloProvider client={client} store={store}>
     <Router>
       <App />
     </Router>
-  </Provider>,
+  </ApolloProvider>,
   document.getElementById('root'),
 );
 
