@@ -9,11 +9,11 @@ import configureStore from '../app/store/configureStore';
 const store = configureStore(window.__PRELOADED_STATE__);
 
 render(
-  <Router>
-    <Provider store={store}>
+  <Provider store={store}>
+    <Router>
       <App />
-    </Provider>
-  </Router>,
+    </Router>
+  </Provider>,
   document.getElementById('root'),
 );
 

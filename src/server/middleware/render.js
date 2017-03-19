@@ -12,11 +12,11 @@ export default function render(req, res) {
   const store = configureStore();
 
   const html = renderToString(
-    <StaticRouter location={req.url} context={context}>
-      <Provider store={store}>
+    <Provider store={store}>
+      <StaticRouter location={req.url} context={context}>
         <App />
-      </Provider>
-    </StaticRouter>,
+      </StaticRouter>
+    </Provider>,
   );
 
   if (context.url) {
